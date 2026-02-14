@@ -1,17 +1,42 @@
 # Daily NYC/NJ News Briefing
 
-Provides a morning briefing with cultural, industry, and sports news for the NYC/Jersey City area.
+An adaptive morning briefing that learns and evolves based on current events and feedback.
 
-## Usage
+## How It Works
 
-This skill is triggered automatically via cron at 9AM ET daily. It can also be invoked manually.
+1. **Reads context** from `memory/news-context.md` for current focus topics
+2. **Searches** for news across culture, industry, sports, and focus topics
+3. **Delivers briefing** with top stories
+4. **Updates context** with new trending topics and follow-ups
+5. **Learns** from feedback to improve over time
 
-## What It Covers
+## Context File
 
-- **Culture**: NYC arts, events, entertainment, food scene
-- **Industry**: Business, tech, finance news affecting the metro area
-- **Sports**: Local teams (Yankees, Mets, Knicks, Nets, Giants, Jets, Rangers, Devils, NYCFC, Red Bulls)
+`memory/news-context.md` tracks:
+- **Focus Topics**: Major ongoing events (Olympics, playoffs, elections, etc.)
+- **Local Interests**: NYC/JC specific topics
+- **Teams**: Sports teams to monitor
+- **Preferences**: What Arxa wants more/less of
+- **Briefing Notes**: Follow-up items from previous briefings
 
-## Output
+## Giving Feedback
 
-Delivers a concise briefing to the main session with top stories from each category.
+Just tell me:
+- "More Olympics coverage" → adds to focus
+- "Skip crypto news" → adds to skip list
+- "Track the Rangers playoff push" → adds specific follow-up
+
+The briefing adapts based on your input.
+
+## Schedule
+
+Runs daily at 9AM ET via cron. Can also be triggered manually.
+
+## Evolution
+
+After each briefing, I update the context with:
+- New trending topics discovered
+- Stories worth following up
+- Adjustments based on what's relevant
+
+This means the briefing gets smarter over time, not just a static news dump.
