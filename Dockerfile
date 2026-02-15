@@ -26,21 +26,22 @@ RUN npm install -g openclaw@2026.2.3 \
     && openclaw --version
 
 # Create OpenClaw directories
-# Legacy .clawdbot paths are kept for R2 backup migration
-RUN mkdir -p /root/.openclaw \
-    && mkdir -p /root/clawd \
-    && mkdir -p /root/clawd/skills
+RUN mkdir -p /root/.openclaw/workspace \
+    && mkdir -p /root/.openclaw/workspace/skills \
+    && mkdir -p /root/.openclaw/workspace/memory
 
 # Copy startup script
-# Build cache bust: 2026-02-06-v29-sync-workspace
+# Build cache bust: 2026-02-15-v30-disable-device-auth
 COPY start-openclaw.sh /usr/local/bin/start-openclaw.sh
-RUN chmod +x /usr/local/bin/start-openclaw.sh
+# Safety net: ensure LF line endings (in case .gitattributes didn't apply)
+RUN sed -i 's/\r$//' /usr/local/bin/start-openclaw.sh \
+    && chmod +x /usr/local/bin/start-openclaw.sh
 
-# Copy custom skills
-COPY skills/ /root/clawd/skills/
+# Copy custom skills (if any)
+COPY skills/ /root/.openclaw/workspace/skills/
 
 # Set working directory
-WORKDIR /root/clawd
+WORKDIR /root/.openclaw/workspace
 
 # Expose the gateway port
 EXPOSE 18789

@@ -201,10 +201,13 @@ if (process.env.OPENCLAW_GATEWAY_TOKEN) {
     config.gateway.auth.token = process.env.OPENCLAW_GATEWAY_TOKEN;
 }
 
-if (process.env.OPENCLAW_DEV_MODE === 'true') {
-    config.gateway.controlUi = config.gateway.controlUi || {};
-    config.gateway.controlUi.allowInsecureAuth = true;
-}
+// Control UI configuration for proxied CF Worker deployment
+// CF Access provides authentication at the worker level, so we disable
+// device pairing for the Control UI (would require pairing on every container restart)
+config.gateway.controlUi = config.gateway.controlUi || {};
+config.gateway.controlUi.dangerouslyDisableDeviceAuth = true;
+config.gateway.controlUi.allowInsecureAuth = true;
+console.log('Device auth disabled for proxied deployment (CF Access provides auth)');
 
 // AI Gateway model override
 if (process.env.CF_AI_GATEWAY_MODEL) {
