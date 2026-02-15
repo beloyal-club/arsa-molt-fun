@@ -2,9 +2,10 @@
 # Startup script for OpenClaw in Cloudflare Sandbox
 # This script:
 # 1. Restores config from R2 backup if available
-# 2. Runs openclaw onboard --non-interactive to configure from env vars
-# 3. Patches config for features onboard doesn't cover (channels, gateway auth)
-# 4. Starts the gateway
+# 2. Restores workspace (IDENTITY.md, MEMORY.md, etc.) from R2
+# 3. Runs openclaw onboard --non-interactive to configure from env vars
+# 4. Patches config for features onboard doesn't cover (channels, gateway auth)
+# 5. Starts the gateway
 
 set -e
 
@@ -16,11 +17,14 @@ fi
 CONFIG_DIR="/root/.openclaw"
 CONFIG_FILE="$CONFIG_DIR/openclaw.json"
 BACKUP_DIR="/data/moltbot"
+WORKSPACE_DIR="/root/.openclaw/workspace"
 
 echo "Config directory: $CONFIG_DIR"
 echo "Backup directory: $BACKUP_DIR"
+echo "Workspace directory: $WORKSPACE_DIR"
 
 mkdir -p "$CONFIG_DIR"
+mkdir -p "$WORKSPACE_DIR"
 
 # ============================================================
 # RESTORE FROM R2 BACKUP
@@ -67,55 +71,73 @@ if [ -f "$BACKUP_DIR/openclaw/openclaw.json" ]; then
         echo "Restored config from R2 backup"
     fi
 elif [ -f "$BACKUP_DIR/clawdbot/clawdbot.json" ]; then
-    # Legacy backup format — migrate .clawdbot data into .openclaw
     if should_restore_from_r2; then
         echo "Restoring from legacy R2 backup at $BACKUP_DIR/clawdbot..."
         cp -a "$BACKUP_DIR/clawdbot/." "$CONFIG_DIR/"
         cp -f "$BACKUP_DIR/.last-sync" "$CONFIG_DIR/.last-sync" 2>/dev/null || true
-        # Rename the config file if it has the old name
         if [ -f "$CONFIG_DIR/clawdbot.json" ] && [ ! -f "$CONFIG_FILE" ]; then
             mv "$CONFIG_DIR/clawdbot.json" "$CONFIG_FILE"
         fi
         echo "Restored and migrated config from legacy R2 backup"
     fi
-elif [ -f "$BACKUP_DIR/clawdbot.json" ]; then
-    # Very old legacy backup format (flat structure)
-    if should_restore_from_r2; then
-        echo "Restoring from flat legacy R2 backup at $BACKUP_DIR..."
-        cp -a "$BACKUP_DIR/." "$CONFIG_DIR/"
-        cp -f "$BACKUP_DIR/.last-sync" "$CONFIG_DIR/.last-sync" 2>/dev/null || true
-        if [ -f "$CONFIG_DIR/clawdbot.json" ] && [ ! -f "$CONFIG_FILE" ]; then
-            mv "$CONFIG_DIR/clawdbot.json" "$CONFIG_FILE"
-        fi
-        echo "Restored and migrated config from flat legacy R2 backup"
-    fi
 elif [ -d "$BACKUP_DIR" ]; then
-    echo "R2 mounted at $BACKUP_DIR but no backup data found yet"
+    echo "R2 mounted at $BACKUP_DIR but no config backup found yet"
 else
     echo "R2 not mounted, starting fresh"
 fi
 
-# Restore workspace from R2 backup if available (only if R2 is newer)
-# This includes IDENTITY.md, USER.md, MEMORY.md, memory/, and assets/
-WORKSPACE_DIR="/root/clawd"
-if [ -d "$BACKUP_DIR/workspace" ] && [ "$(ls -A $BACKUP_DIR/workspace 2>/dev/null)" ]; then
+# ============================================================
+# RESTORE WORKSPACE FROM R2
+# ============================================================
+# Workspace files: IDENTITY.md, USER.md, MEMORY.md, SOUL.md, TOOLS.md, HEARTBEAT.md, AGENTS.md
+# Plus directories: memory/, skills/
+
+R2_WORKSPACE="$BACKUP_DIR/openclaw-workspace"
+
+if [ -d "$R2_WORKSPACE" ] && [ "$(ls -A $R2_WORKSPACE 2>/dev/null)" ]; then
     if should_restore_from_r2; then
-        echo "Restoring workspace from $BACKUP_DIR/workspace..."
-        mkdir -p "$WORKSPACE_DIR"
-        cp -a "$BACKUP_DIR/workspace/." "$WORKSPACE_DIR/"
-        echo "Restored workspace from R2 backup"
+        echo "Restoring workspace from $R2_WORKSPACE..."
+        
+        # Restore individual workspace files
+        for file in IDENTITY.md USER.md MEMORY.md SOUL.md TOOLS.md HEARTBEAT.md AGENTS.md; do
+            if [ -f "$R2_WORKSPACE/$file" ]; then
+                cp "$R2_WORKSPACE/$file" "$WORKSPACE_DIR/$file"
+                echo "  Restored: $file"
+            fi
+        done
+        
+        # Restore memory directory
+        if [ -d "$R2_WORKSPACE/memory" ]; then
+            mkdir -p "$WORKSPACE_DIR/memory"
+            cp -r "$R2_WORKSPACE/memory/." "$WORKSPACE_DIR/memory/"
+            echo "  Restored: memory/"
+        fi
+        
+        # Restore skills directory
+        if [ -d "$R2_WORKSPACE/skills" ]; then
+            mkdir -p "$WORKSPACE_DIR/skills"
+            cp -r "$R2_WORKSPACE/skills/." "$WORKSPACE_DIR/skills/"
+            echo "  Restored: skills/"
+        fi
+        
+        # Copy sync timestamp
+        cp -f "$BACKUP_DIR/.last-sync" "$WORKSPACE_DIR/.last-sync" 2>/dev/null || true
+        
+        echo "Workspace restored from R2"
     fi
+else
+    echo "No workspace backup found at $R2_WORKSPACE"
 fi
 
-# Restore skills from R2 backup if available (only if R2 is newer)
-SKILLS_DIR="/root/clawd/skills"
-if [ -d "$BACKUP_DIR/skills" ] && [ "$(ls -A $BACKUP_DIR/skills 2>/dev/null)" ]; then
-    if should_restore_from_r2; then
-        echo "Restoring skills from $BACKUP_DIR/skills..."
-        mkdir -p "$SKILLS_DIR"
-        cp -a "$BACKUP_DIR/skills/." "$SKILLS_DIR/"
-        echo "Restored skills from R2 backup"
-    fi
+# ============================================================
+# RESTORE SCRIPTS FROM R2 (if available)
+# ============================================================
+if [ -d "$BACKUP_DIR/openclaw/scripts" ]; then
+    echo "Restoring sync scripts from R2..."
+    mkdir -p "$CONFIG_DIR/scripts"
+    cp -a "$BACKUP_DIR/openclaw/scripts/." "$CONFIG_DIR/scripts/"
+    chmod +x "$CONFIG_DIR/scripts/"*.sh 2>/dev/null || true
+    echo "Scripts restored"
 fi
 
 # ============================================================
@@ -153,11 +175,6 @@ fi
 # ============================================================
 # PATCH CONFIG (channels, gateway auth, trusted proxies)
 # ============================================================
-# openclaw onboard handles provider/model config, but we need to patch in:
-# - Channel config (Telegram, Discord, Slack)
-# - Gateway token auth
-# - Trusted proxies for sandbox networking
-# - Base URL override for legacy AI Gateway path
 node << 'EOFPATCH'
 const fs = require('fs');
 
@@ -189,17 +206,7 @@ if (process.env.OPENCLAW_DEV_MODE === 'true') {
     config.gateway.controlUi.allowInsecureAuth = true;
 }
 
-// Legacy AI Gateway base URL override:
-// ANTHROPIC_BASE_URL is picked up natively by the Anthropic SDK,
-// so we don't need to patch the provider config. Writing a provider
-// entry without a models array breaks OpenClaw's config validation.
-
-// AI Gateway model override (CF_AI_GATEWAY_MODEL=provider/model-id)
-// Adds a provider entry for any AI Gateway provider and sets it as default model.
-// Examples:
-//   workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast
-//   openai/gpt-4o
-//   anthropic/claude-sonnet-4-5
+// AI Gateway model override
 if (process.env.CF_AI_GATEWAY_MODEL) {
     const raw = process.env.CF_AI_GATEWAY_MODEL;
     const slashIdx = raw.indexOf('/');
@@ -234,14 +241,10 @@ if (process.env.CF_AI_GATEWAY_MODEL) {
         config.agents.defaults = config.agents.defaults || {};
         config.agents.defaults.model = { primary: providerName + '/' + modelId };
         console.log('AI Gateway model override: provider=' + providerName + ' model=' + modelId + ' via ' + baseUrl);
-    } else {
-        console.warn('CF_AI_GATEWAY_MODEL set but missing required config (account ID, gateway ID, or API key)');
     }
 }
 
 // Telegram configuration
-// Overwrite entire channel object to drop stale keys from old R2 backups
-// that would fail OpenClaw's strict config validation (see #47)
 if (process.env.TELEGRAM_BOT_TOKEN) {
     const dmPolicy = process.env.TELEGRAM_DM_POLICY || 'pairing';
     config.channels.telegram = {
@@ -257,7 +260,6 @@ if (process.env.TELEGRAM_BOT_TOKEN) {
 }
 
 // Discord configuration
-// Discord uses a nested dm object: dm.policy, dm.allowFrom (per DiscordDmConfig)
 if (process.env.DISCORD_BOT_TOKEN) {
     const dmPolicy = process.env.DISCORD_DM_POLICY || 'pairing';
     const dm = { policy: dmPolicy };
