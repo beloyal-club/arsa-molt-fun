@@ -44,6 +44,8 @@ export interface MoltbotEnv {
   WORKER_URL?: string; // Public URL of the worker (for CDP endpoint)
   // Web search
   BRAVE_API_KEY?: string; // Brave Search API key for web_search tool
+  // Cloudflare API token for MCP server calls
+  CLOUDFLARE_API_TOKEN?: string; // API token for Cloudflare MCP HTTP endpoints
 }
 
 /**
