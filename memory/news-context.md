@@ -10,11 +10,22 @@
 
 ## Global Events Tracking
 <!-- Major world events with local relevance -->
-- **Winter Olympics 2026**: Feb 6-22 | Milan-Cortina, Italy — NYC athletes, viewing parties, Broadway Bares planning Olympics theme for June
+- **Winter Olympics 2026**: CONCLUDED Feb 22 | Closing ceremony in Verona — Broadway Bares planning Olympics theme for June
 - **Gateway Tunnel funding**: Ongoing | $16B project, federal uncertainty — commuter impact
+- **February 2026 Blizzard**: Feb 22-23 | Historic nor'easter, first blizzard warning since 2017
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-02-22
+- Blizzard warning NYC first since 2017
+- State of Emergency NY and NJ
+- Mayor Zohran Mamdani blizzard prep
+- MTA service adjustments (express running local)
+- Schools decision pending (possible remote Monday)
+- Winter Olympics closing ceremony Verona
+- Eileen Gu freeski gold defense
+- Broadway performing through blizzard (mostly)
+
 ### 2026-02-16
 - Pride flag defiance Stonewall
 - NYCHA housing plan collapse
