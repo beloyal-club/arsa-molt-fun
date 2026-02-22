@@ -122,7 +122,32 @@ After restart, rediscovered and properly documented the Cloudflare integrations.
 2. Add each secret by name and value
 3. Restart gateway (secrets are injected on container start)
 
-**NEVER store actual secret values in MEMORY.md** — this file syncs to R2.
+**NEVER store actual secret values in MEMORY.md** — this file syncs to R2 and git.
+
+### Git Workspace Sync Setup
+
+Workspace files now sync to both R2 AND GitHub (arsa-molt-fun repo).
+
+**What happens on heartbeat:**
+1. `workspace-sync.sh` runs
+2. Syncs workspace → R2 at `/data/moltbot/openclaw/workspace/`
+3. Commits and pushes changes to GitHub if any
+
+**What happens on container startup:**
+1. R2 mounted at `/data/moltbot`
+2. `start-openclaw.sh` restores workspace from R2 (checks `openclaw/workspace/` first, then legacy `openclaw-workspace/`)
+3. Restores scripts from R2 at `openclaw/scripts/`
+4. Clones `arsa-molt-fun` repo if `GITHUB_PERSONAL_ACCESS_TOKEN` is set
+5. Starts gateway
+
+**Files synced:**
+- IDENTITY.md, USER.md, SOUL.md, TOOLS.md, MEMORY.md, HEARTBEAT.md, AGENTS.md
+- memory/ directory
+- skills/ directory
+
+**Scripts location:** `/root/.openclaw/scripts/` (backed up to R2 at `/data/moltbot/openclaw/scripts/`)
+
+**Git repo:** `/root/arsa-molt-fun` (clone of beloyal-club/arsa-molt-fun)
 
 #### R2 Sync Architecture
 
