@@ -236,6 +236,23 @@ Added all 6 YouTube secrets via Cloudflare API (correct account: PRTL `6a93f4e0f
 
 **Tested and working:** Posted 2 comments to YouTube successfully.
 
+### Discord Channel Connected
+
+Finally got Discord working!
+
+**Config:**
+- Server ID: `1064272702254354434` (PRTL)
+- Channel ID: `1475231662332969192`
+- `requireMention: true` — won't spam, responds when @mentioned
+- DMs: pairing mode (approve via code)
+
+**Worker secrets set:**
+- `DISCORD_APPLICATION_ID`
+- `DISCORD_BOT_TOKEN`
+- `DISCORD_PUBLIC_KEY`
+
+**Key:** The config key is `guilds` not `groups` — and channel allowlists go under `guilds.<id>.channels.<id>`.
+
 ### BMAD Factory Reference (TODO: Separate Branch)
 
 Reference: https://github.com/kellyclaudeai/bmad-factory
