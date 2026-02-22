@@ -1,6 +1,6 @@
 ---
 name: youtube-commenter
-description: Post witty, empathetic comments on YouTube videos about NYC events, culture, Broadway, restaurants, and local happenings. Use when asked to comment on YouTube videos, engage with NYC content, or boost visibility through thoughtful commentary. Requires YOUTUBE_REFRESH_TOKEN.
+description: Post witty, empathetic comments on YouTube videos about NYC events, culture, Broadway, restaurants, and local happenings. Chains with nyc-cultural-pulse skill to find relevant videos from today's news. Requires YOUTUBE_REFRESH_TOKEN.
 ---
 
 # YouTube Commenter
@@ -9,36 +9,60 @@ Post engaging comments on NYC-related YouTube videos that earn upvotes through w
 
 ## Prerequisites
 
-YouTube Data API v3 credentials:
+YouTube Data API v3 credentials (set as Worker secrets):
 - `YOUTUBE_CLIENT_ID` — OAuth client ID
 - `YOUTUBE_CLIENT_SECRET` — OAuth client secret  
 - `YOUTUBE_REFRESH_TOKEN` — Refresh token with `youtube.force-ssl` scope
 
-## Workflow
+## Chained Workflow (with nyc-cultural-pulse)
 
-### 1. Find Videos
+This skill works best when chained with the news skill:
 
-Search for NYC event videos:
+### Step 1: Get Today's News Context
+
+First, check `memory/news-context.md` for recent stories from the nyc-cultural-pulse skill. Look for:
+- Top stories with video potential
+- Trending topics (3+ mentions = trend)
+- Cultural events (Broadway, concerts, openings)
+
+If no recent context exists, run `nyc-cultural-pulse` first to populate it.
+
+### Step 2: Search YouTube for News Topics
+
+For each newsworthy topic, search YouTube:
+
 ```bash
-./scripts/youtube-search.sh "NYC Broadway opening night 2026"
-./scripts/youtube-search.sh "new restaurant opening Manhattan"
-./scripts/youtube-search.sh "NYC concert Central Park"
+./scripts/youtube-search.sh "NYC [topic from news]"
+./scripts/youtube-search.sh "[venue/event name] New York"
 ```
 
-### 2. Analyze Before Commenting
+**Good search patterns:**
+- Broadway show names + "opening night"
+- Restaurant names + "review" or "first look"
+- Event names + "NYC" or "New York"
+- Neighborhood + "news" or "update"
 
-Before commenting, gather context:
-- Video title and description
-- Channel name and vibe
-- Top existing comments (understand the room)
-- Video length and content type
+### Step 3: Select Target Videos
 
-### 3. Generate Comment
+Pick videos that are:
+- **Fresh**: Published in last 48 hours (for visibility)
+- **Engaged**: Has some comments but not thousands
+- **Relevant**: Actually about the NYC topic, not tangential
+- **Quality**: From legitimate creators, not spam
 
-**Comment Formula:**
+Use `./scripts/youtube-get-video.sh VIDEO_ID` to check details.
+
+### Step 4: Craft the Comment
+
+**The Formula:**
 ```
 [Specific observation] + [Relatable feeling] + [Light wit OR genuine question]
 ```
+
+**Draw from the news context:**
+- Reference related stories ("I read the other location is opening in Brooklyn next month...")
+- Add local knowledge ("The L train construction is going to make this place a nightmare to get to but worth it")
+- Connect dots ("This is the third ramen spot to open in this block this year, the soup wars are real")
 
 **Good examples:**
 - "The way the crowd erupted at 2:34 gave me actual chills. This is why NYC theater hits different 🎭"
@@ -47,15 +71,27 @@ Before commenting, gather context:
 
 **Avoid:**
 - Generic praise ("Great video!")
-- Self-promotion
+- Self-promotion or links
 - Controversial takes
-- Emojis spam
+- Emoji spam
 - "First!" energy
+- Anything that sounds like AI wrote it
 
-### 4. Post Comment
+### Step 5: Post Comment
 
 ```bash
 ./scripts/youtube-comment.sh VIDEO_ID "Your comment here"
+```
+
+### Step 6: Log Activity
+
+After commenting, update `memory/youtube-activity.md`:
+```markdown
+## [Date]
+- Video: [title] (VIDEO_ID)
+- Topic: [news topic that inspired this]
+- Comment: "[what you posted]"
+- Channel: [channel name]
 ```
 
 ## Comment Style Guide
@@ -72,19 +108,41 @@ Write like a local who genuinely loves the city. Reference specific neighborhood
 ### Length
 2-3 sentences max. Punchy > lengthy.
 
-### Timing
-Comment on videos less than 48 hours old for visibility.
-
 ## Rate Limits
 
 - YouTube API: 10,000 units/day
 - Comments: ~50/day to avoid spam flags
 - Space comments: minimum 2 minutes apart
+- Don't comment on same channel twice in 24h
 
 ## Scripts
 
 | Script | Purpose |
 |--------|---------|
-| `youtube-search.sh` | Search videos by query |
-| `youtube-comment.sh` | Post a comment |
-| `youtube-auth.sh` | Refresh OAuth token |
+| `scripts/youtube-search.sh` | Search videos by query |
+| `scripts/youtube-comment.sh` | Post a comment |
+| `scripts/youtube-auth.sh` | Refresh OAuth token |
+| `scripts/youtube-get-video.sh` | Get video details |
+
+## Example Full Workflow
+
+```
+1. Read memory/news-context.md
+   → "New ramen spot 'Tsukemen Lab' opened in East Village"
+
+2. Search YouTube
+   → ./scripts/youtube-search.sh "Tsukemen Lab East Village"
+   → Found: "FIRST LOOK: Tsukemen Lab NYC" (2 days old, 47 comments)
+
+3. Analyze video context
+   → ./scripts/youtube-get-video.sh abc123xyz
+   → Good engagement, creator is local food blogger
+
+4. Craft comment drawing from news
+   → "The fact that they're doing a tsukemen-only menu is bold. East Village needed this after Raku closed. That mushroom broth looked unreal at 3:42"
+
+5. Post
+   → ./scripts/youtube-comment.sh abc123xyz "The fact that they're..."
+
+6. Log to memory/youtube-activity.md
+```

@@ -5,9 +5,14 @@
 
 set -e
 
+# Source creds file if env vars not set (workaround for mid-session secrets)
+if [ -z "$YOUTUBE_CLIENT_ID" ] && [ -f /root/.youtube-creds ]; then
+    source /root/.youtube-creds
+fi
+
 if [ -z "$YOUTUBE_CLIENT_ID" ] || [ -z "$YOUTUBE_CLIENT_SECRET" ] || [ -z "$YOUTUBE_REFRESH_TOKEN" ]; then
-    echo "ERROR: Missing YouTube credentials"
-    echo "Required: YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN"
+    echo "ERROR: Missing YouTube credentials" >&2
+    echo "Required: YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN" >&2
     exit 1
 fi
 
