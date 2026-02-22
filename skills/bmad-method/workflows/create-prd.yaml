@@ -1,0 +1,131 @@
+name: "Create PRD"
+description: "Create a Product Requirements Document from a brief or idea"
+agent: pm
+track: bmad-method
+
+inputs:
+  - name: brief
+    path: bmad-output/planning/brief.md
+    required: false
+  - name: user_input
+    required: true
+    description: "The feature idea or problem to solve"
+
+outputs:
+  - name: prd
+    path: bmad-output/planning/PRD.md
+
+steps:
+  - name: understand_problem
+    prompt: |
+      Let's start by understanding the problem space.
+      
+      Questions to answer:
+      1. What user problem are we solving?
+      2. How do users currently solve this problem?
+      3. Why is the current solution insufficient?
+      4. What's the business value of solving this?
+      
+      If a brief exists, reference it. If not, ask the user.
+
+  - name: define_personas
+    prompt: |
+      Define the user personas affected by this feature.
+      
+      For each persona:
+      - Name and role
+      - Goals and motivations
+      - Pain points
+      - How they'll use this feature
+
+  - name: requirements
+    prompt: |
+      List the requirements.
+      
+      Functional Requirements:
+      - What the system must DO
+      - Use "The system shall..." format
+      - Include acceptance criteria
+      
+      Non-Functional Requirements:
+      - Performance, security, scalability
+      - Constraints and limitations
+
+  - name: success_metrics
+    prompt: |
+      Define how we'll measure success.
+      
+      - Primary metric (the one number that matters)
+      - Secondary metrics (supporting indicators)
+      - How and when we'll measure
+
+  - name: risks
+    prompt: |
+      Identify risks and dependencies.
+      
+      - Technical risks
+      - Business risks  
+      - Dependencies on other teams/systems
+      - Open questions that need answers
+
+template: |
+  # Product Requirements Document
+  
+  **Feature:** [Name]
+  **Author:** PM Agent
+  **Date:** [Date]
+  **Status:** Draft
+  
+  ## Problem Statement
+  
+  ### User Problem
+  [What problem are we solving?]
+  
+  ### Current State
+  [How do users solve this today?]
+  
+  ### Business Value
+  [Why should we build this?]
+  
+  ## User Personas
+  
+  ### [Persona 1]
+  - **Role:** 
+  - **Goals:**
+  - **Pain Points:**
+  
+  ## Requirements
+  
+  ### Functional Requirements
+  
+  | ID | Requirement | Acceptance Criteria | Priority |
+  |----|-------------|---------------------|----------|
+  | FR-1 | | | |
+  
+  ### Non-Functional Requirements
+  
+  | ID | Requirement | Target | Priority |
+  |----|-------------|--------|----------|
+  | NFR-1 | | | |
+  
+  ## Success Metrics
+  
+  | Metric | Target | Measurement |
+  |--------|--------|-------------|
+  | Primary | | |
+  | Secondary | | |
+  
+  ## Risks & Dependencies
+  
+  ### Risks
+  | Risk | Likelihood | Impact | Mitigation |
+  |------|------------|--------|------------|
+  
+  ### Dependencies
+  - [ ] 
+  
+  ## Open Questions
+  - [ ] 
+  
+  ## Appendix
+  [Additional context, research, references]

@@ -65,17 +65,28 @@ Use `./scripts/youtube-get-video.sh VIDEO_ID` to check details.
 - Connect dots ("This is the third ramen spot to open in this block this year, the soup wars are real")
 
 **Good examples:**
-- "The way the crowd erupted at 2:34 gave me actual chills. This is why NYC theater hits different 🎭"
-- "As someone who waited 3 hours for that ramen, can confirm the hype is real. My wallet disagrees but my soul is at peace"
-- "Not me planning my entire weekend around this video... again. The East Village just doesn't miss"
+- "The way the crowd erupted at 2:34 gave me actual chills. This is why NYC theater hits different"
+- "Waited 3 hours for that ramen, can confirm the hype is real. My wallet disagrees but my soul is at peace"
+- "Not me planning my entire weekend around this video... again"
+- "14th and 7th location closed last month, this one better not follow 😤"
+- "The fact that they're doing tsukemen-only is bold. East Village needed this after Raku closed"
 
 **Avoid:**
 - Generic praise ("Great video!")
 - Self-promotion or links
 - Controversial takes
-- Emoji spam
+- Emojis at the end of sentences (feels AI-generated)
+- Too many emojis anywhere
 - "First!" energy
-- Anything that sounds like AI wrote it
+- Anything that sounds templated or formulaic
+- Starting with "As someone who..." (overused AI pattern)
+
+**Wit Guidelines:**
+- Specific > generic (name the intersection, the dish, the moment)
+- Self-deprecating humor works (subway delays, rent prices, waiting in lines)
+- Local frustrations are relatable (alternate side parking, L train, bridge traffic)
+- Callbacks to specific timestamps show you watched
+- Hot takes on neighborhoods are engaging (but not mean-spirited)
 
 ### Step 5: Post Comment
 
