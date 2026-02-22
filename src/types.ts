@@ -46,6 +46,13 @@ export interface MoltbotEnv {
   BRAVE_API_KEY?: string; // Brave Search API key for web_search tool
   // Cloudflare API token for MCP server calls
   CLOUDFLARE_API_TOKEN?: string; // API token for Cloudflare MCP HTTP endpoints
+  // YouTube API for commenting skill
+  YOUTUBE_CLIENT_ID?: string;
+  YOUTUBE_CLIENT_SECRET?: string;
+  YOUTUBE_REDIRECT_URI?: string;
+  YOUTUBE_USER_ID?: string;
+  YOUTUBE_CHANNEL_ID?: string;
+  YOUTUBE_REFRESH_TOKEN?: string;
 }
 
 /**
