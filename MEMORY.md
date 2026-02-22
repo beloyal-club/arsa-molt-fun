@@ -223,3 +223,34 @@ Added YouTube API credentials for the youtube-commenter skill.
 | `YOUTUBE_REFRESH_TOKEN` | OAuth refresh token for API access |
 
 **Status:** Code deployed via GitHub Actions. Secrets need to be added via `/_admin/` Secrets panel, then container restart.
+
+### YouTube Secrets Added + Working
+
+Added all 6 YouTube secrets via Cloudflare API (correct account: PRTL `6a93f4e0f785a77f95436f494bb13fa3`).
+
+**Key learnings:**
+- Secrets API needs `type: "secret_text"` field
+- Secrets injected at container start, not gateway restart
+- Workaround: Write to `/root/.youtube-creds` file, source before scripts
+- Scripts updated to auto-source creds file if env vars missing
+
+**Tested and working:** Posted 2 comments to YouTube successfully.
+
+### BMAD Factory Reference (TODO: Separate Branch)
+
+Reference: https://github.com/kellyclaudeai/bmad-factory
+
+Production-grade BMAD implementation on OpenClaw with:
+- **Orchestrator pattern**: Kelly Router → Project Lead → BMAD agents
+- **State management**: `project-registry.json` single source of truth
+- **Research pipeline**: Research Lead autonomously generates product ideas
+- **Quality gates**: TEA (Test Architect) with 4-gate testing
+- **Dependency-driven parallelism**: Stories spawn when deps resolve
+- **Self-healing**: Heartbeat detects stuck agents, respawns
+
+Key docs:
+- `docs/core/project-lead-flow.md` — Full PL orchestration spec
+- `docs/core/research-lead-flow.md` — Idea generation pipeline
+- `AGENTS.md` — Execution routing, session naming conventions
+
+**TODO:** Create separate branch to implement full factory pattern.
