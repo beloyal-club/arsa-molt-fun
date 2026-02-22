@@ -1,32 +1,50 @@
-# Daily News Context
+# News Context
 
-## Current Focus Topics
-Track major ongoing events to include in briefings.
+*Learning context for NYC Cultural Pulse skill. Updated after each briefing.*
 
-- **2026 Winter Olympics** (Milan-Cortina, Italy) — through Feb 22
-- **NBA All-Star Weekend** — Feb 14-16, 2026
-- **MLB Spring Training** — starts mid-February
-- **AI/Tech disruption** — ongoing Wall Street theme
+## Active Trends
+<!-- Topics appearing repeatedly, worth tracking -->
+- **Georgian restaurants NYC**: 2026-02-16 | count: 1 | Eater featured as emerging trend
+- **Alternate side parking suspension**: 2026-02-16 | count: 1 | Ongoing since Jan 25, social commentary angle
+- **NYCHA/housing instability**: 2026-02-16 | count: 1 | Federal funding cuts affecting local housing
 
-## Local Interests
-- NYC arts, Broadway, museum exhibitions
-- Jersey City development, PATH, local politics
-- NYC restaurant/food scene
+## Global Events Tracking
+<!-- Major world events with local relevance -->
+- **Winter Olympics 2026**: Feb 6-22 | Milan-Cortina, Italy — NYC athletes, viewing parties, Broadway Bares planning Olympics theme for June
+- **Gateway Tunnel funding**: Ongoing | $16B project, federal uncertainty — commuter impact
 
-## Teams to Track
-- Yankees, Mets (MLB)
-- Knicks, Nets (NBA)  
-- Rangers, Devils, Islanders (NHL)
-- Giants, Jets (NFL — offseason)
-- NYCFC, Red Bulls (MLS)
+## Recent Stories
+<!-- Last 7 days, prevent repeats -->
+### 2026-02-16
+- Pride flag defiance Stonewall
+- NYCHA housing plan collapse
+- Hochul tech energy costs
+- Gateway Tunnel funding standoff
+- Off-Broadway Week March 2-for-1
+- Oh Mary John Cameron Mitchell Simu Liu
+- Georgian restaurants trend
+- Korai Kitchen Jersey City review
+- HAGS pay-what-you-want brunch
+- Sailor Fort Greene chicken
+- Alternate side parking suspension
 
-## Arxa's Preferences
-*(Updated based on feedback)*
-- Likes: [to be learned]
-- Skip: [to be learned]
+## Seasonal Calendar
+<!-- Recurring annual events to watch -->
+- **February**: Fashion Week (late Feb), Valentine's dining, Black History Month events, Presidents Day weekend
+- **March**: St. Patrick's Day parade, spring Broadway openings, Off-Broadway Week
+- **April**: Tribeca Film Festival, cherry blossoms, Passover/Easter
+- **May**: Met Gala, Memorial Day weekend, outdoor dining returns
+- **June**: Pride Month, SummerStage begins, restaurant week, Broadway Bares (June 21)
+- **September**: Fashion Week, US Open, 9/11 memorials, back to Broadway
+- **October**: Comic Con, Halloween events, fall foliage
+- **November**: NYC Marathon, Thanksgiving parade, holiday markets open
+- **December**: Rockefeller tree, NYE preparations, holiday shows
 
-## Recent Briefing Notes
-*(What was trending, what to follow up on)*
-- 2026-02-14: Lindor injury (Mets) — track recovery timeline
-- 2026-02-14: Panarin trade (Rangers) — follow team impact
-- 2026-02-14: AI market anxiety — ongoing theme
+## Learned Patterns
+<!-- Cross-domain connections discovered -->
+- Broadway/events tie into Olympics cycle (Broadway Bares Olympics theme)
+- Federal policy changes creating local ripple effects (Pride flag, NYCHA, Gateway)
+
+## Archived Trends
+<!-- No longer active, kept for reference -->
+*None yet*

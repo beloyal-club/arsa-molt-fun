@@ -2,9 +2,11 @@
 
 ## Periodic Tasks
 
-### R2 Backup (every 4 heartbeats / ~2 hours)
-Run workspace backup to R2 if it's been more than 2 hours since last backup:
-```
-/root/.openclaw/workspace/skills/r2-backup/r2-backup.sh
-```
-Check `memory/backup.log` for last backup time. Skip if <2h ago.
+### R2 Workspace Sync (every heartbeat)
+Run `/root/.openclaw/scripts/workspace-sync.sh` to backup workspace changes to R2.
+Log results. If sync fails, note it but don't alarm.
+
+### Daily News (9 AM ET only)
+If it's around 9 AM ET (14:00 UTC), run the `nyc-cultural-pulse` skill.
+Read `skills/nyc-cultural-pulse/SKILL.md` and follow the workflow.
+Check `memory/news-context.md` for context and update it after briefing.
