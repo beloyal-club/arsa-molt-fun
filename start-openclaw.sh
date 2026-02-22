@@ -92,7 +92,12 @@ fi
 # Workspace files: IDENTITY.md, USER.md, MEMORY.md, SOUL.md, TOOLS.md, HEARTBEAT.md, AGENTS.md
 # Plus directories: memory/, skills/
 
-R2_WORKSPACE="$BACKUP_DIR/openclaw-workspace"
+# Check both new path (openclaw/workspace) and legacy path (openclaw-workspace)
+if [ -d "$BACKUP_DIR/openclaw/workspace" ]; then
+    R2_WORKSPACE="$BACKUP_DIR/openclaw/workspace"
+else
+    R2_WORKSPACE="$BACKUP_DIR/openclaw-workspace"
+fi
 
 if [ -d "$R2_WORKSPACE" ] && [ "$(ls -A $R2_WORKSPACE 2>/dev/null)" ]; then
     if should_restore_from_r2; then
@@ -138,6 +143,21 @@ if [ -d "$BACKUP_DIR/openclaw/scripts" ]; then
     cp -a "$BACKUP_DIR/openclaw/scripts/." "$CONFIG_DIR/scripts/"
     chmod +x "$CONFIG_DIR/scripts/"*.sh 2>/dev/null || true
     echo "Scripts restored"
+fi
+
+# ============================================================
+# CLONE GIT REPO (for workspace versioning)
+# ============================================================
+REPO_DIR="/root/arsa-molt-fun"
+if [ -n "$GITHUB_PERSONAL_ACCESS_TOKEN" ] && [ ! -d "$REPO_DIR/.git" ]; then
+    echo "Cloning arsa-molt-fun repo..."
+    git clone "https://${GITHUB_PERSONAL_ACCESS_TOKEN}@github.com/beloyal-club/arsa-molt-fun.git" "$REPO_DIR" 2>/dev/null || true
+    if [ -d "$REPO_DIR/.git" ]; then
+        cd "$REPO_DIR"
+        git config user.email "breth@openclaw.ai"
+        git config user.name "Breth"
+        echo "Repo cloned successfully"
+    fi
 fi
 
 # ============================================================
