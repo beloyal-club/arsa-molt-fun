@@ -44,6 +44,10 @@ export interface MoltbotEnv {
   CF_ACCOUNT_ID?: string; // Cloudflare account ID for R2 endpoint
   // Browser Rendering binding for CDP shim
   BROWSER?: Fetcher;
+  // Worker Loader binding for Codemode sandboxed execution
+  LOADER?: {
+    // Codemode DynamicWorkerExecutor expects this binding type
+  };
   CDP_SECRET?: string; // Shared secret for CDP endpoint authentication
   WORKER_URL?: string; // Public URL of the worker (for CDP endpoint)
   // Web search

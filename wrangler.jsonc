@@ -70,6 +70,8 @@
   "browser": {
     "binding": "BROWSER",
   },
+  // Worker Loader binding for Codemode sandboxed execution
+  "worker_loaders": [{ "binding": "LOADER" }],
   // Cloudflare Secrets Store binding for runtime secret access (requires store_id)
   // "secrets_store_secrets": [{ "binding": "SECRETS", "store_id": "TODO", "secret_name": "*" }],
   // Note: CF_ACCOUNT_ID should be set via `wrangler secret put CF_ACCOUNT_ID`
