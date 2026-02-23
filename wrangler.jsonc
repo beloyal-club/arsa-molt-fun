@@ -70,6 +70,8 @@
   "browser": {
     "binding": "BROWSER",
   },
+  // Cloudflare Secrets Store binding for runtime secret access (requires store_id)
+  // "secrets_store_secrets": [{ "binding": "SECRETS", "store_id": "TODO", "secret_name": "*" }],
   // Note: CF_ACCOUNT_ID should be set via `wrangler secret put CF_ACCOUNT_ID`
   // Secrets to configure via `wrangler secret put`:
   //
