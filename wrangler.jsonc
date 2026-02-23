@@ -73,7 +73,7 @@
   // Worker Loader binding for Codemode sandboxed execution
   // "worker_loaders": [{ "binding": "LOADER" }], // Requires Codemode beta access
   // Cloudflare Secrets Store binding for runtime secret access (requires store_id)
-  "secrets_store_secrets": [{ "binding": "SECRETS", "store_id": "b1b0138be7364e39944d97730206e9b2", "secret_name": "*" }],
+  "secrets_store_secrets": [{ "binding": "TEST_SECRET", "store_id": "b1b0138be7364e39944d97730206e9b2", "secret_name": "TEST_SECRET" }],
   // Note: CF_ACCOUNT_ID should be set via `wrangler secret put CF_ACCOUNT_ID`
   // Secrets to configure via `wrangler secret put`:
   //
