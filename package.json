@@ -20,9 +20,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@cloudflare/codemode": "^0.1.0",
     "@cloudflare/puppeteer": "^1.0.5",
-    "ai": "^6.0.97",
     "hono": "^4.11.6",
     "jose": "^6.0.0",
     "react": "^19.0.0",

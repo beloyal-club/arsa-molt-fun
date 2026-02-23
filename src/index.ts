@@ -27,7 +27,7 @@ import type { AppEnv, MoltbotEnv } from './types';
 import { MOLTBOT_PORT } from './config';
 import { createAccessMiddleware } from './auth';
 import { ensureMoltbotGateway, findExistingMoltbotProcess, syncToR2 } from './gateway';
-import { publicRoutes, api, adminUi, debug, cdp, secrets, codemode } from './routes';
+import { publicRoutes, api, adminUi, debug, cdp, secrets } from './routes';
 import { redactSensitiveParams } from './utils/logging';
 import loadingPageHtml from './assets/loading.html';
 import configErrorHtml from './assets/config-error.html';
@@ -155,7 +155,7 @@ app.route('/cdp', cdp);
 app.route('/api/internal/secrets', secrets);
 
 // Mount Codemode API (sandboxed code execution, no CF Access required for now)
-app.route('/api/codemode', codemode);
+// app.route('/api/codemode', codemode); // Requires Codemode beta access
 
 // =============================================================================
 // PROTECTED ROUTES: Cloudflare Access authentication required
