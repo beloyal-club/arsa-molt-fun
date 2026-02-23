@@ -171,6 +171,13 @@ Modify `start-openclaw.sh` in the Worker repo to:
 
 This ensures workspace is restored even after container restart.
 
+## 2026-02-23
+
+### Container Restart Ability
+I can restart my own container using GitHub Actions on the arsa-molt-fun repo. This is useful when secrets are updated or code is deployed.
+
+---
+
 ## 2026-02-22
 
 ### Fixed the Secrets Passthrough (Finally!)
