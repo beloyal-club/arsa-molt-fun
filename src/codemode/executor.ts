@@ -22,8 +22,8 @@ export function createCodemodeExecutor(env: MoltbotEnv) {
   const tools = {
     log: tool({
       description: 'Log a message to the console',
-      parameters: z.object({ message: z.string() }),
-      execute: async ({ message }) => {
+      inputSchema: z.object({ message: z.string() }),
+      execute: async ({ message }: { message: string }) => {
         console.log('[codemode]', message);
         return `Logged: ${message}`;
       },

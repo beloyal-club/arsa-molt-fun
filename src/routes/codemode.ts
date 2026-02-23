@@ -25,7 +25,11 @@ codemode.post('/execute', async (c) => {
     const codeTool = createCodeTool({ tools, executor });
 
     // Execute the code in the sandbox
-    const result = await codeTool.execute({ code });
+    // The execute function is always defined for tools created by createCodeTool
+    if (!codeTool.execute) {
+      return c.json({ success: false, error: 'Tool execute function not available' }, 500);
+    }
+    const result = await codeTool.execute({ code }, {});
     return c.json({ success: true, result });
   } catch (e) {
     const error = e instanceof Error ? e.message : 'Unknown error';
