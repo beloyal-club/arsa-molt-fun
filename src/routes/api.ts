@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import type { AppEnv } from '../types';
+import type { AppEnv, MoltbotEnv } from '../types';
 import { createAccessMiddleware } from '../auth';
 import {
   ensureMoltbotGateway,
@@ -13,13 +13,69 @@ import { R2_MOUNT_PATH } from '../config';
 // CLI commands can take 10-15 seconds to complete due to WebSocket connection overhead
 const CLI_TIMEOUT_MS = 20000;
 
+// Allowlist of secrets that can be exposed via the /api/secrets endpoint
+// Only expose secrets that container scripts need to fetch dynamically
+const SECRETS_ALLOWLIST = [
+  'YOUTUBE_REFRESH_TOKEN',
+  'YOUTUBE_CLIENT_ID',
+  'YOUTUBE_CLIENT_SECRET',
+  'YOUTUBE_REDIRECT_URI',
+  'YOUTUBE_USER_ID',
+  'YOUTUBE_CHANNEL_ID',
+  'BRAVE_API_KEY',
+] as const;
+
 /**
  * API routes
  * - /api/admin/* - Protected admin API routes (Cloudflare Access required)
+ * - /api/secrets/:name - Protected by gateway token (for container dynamic secret fetching)
  *
  * Note: /api/status is now handled by publicRoutes (no auth required)
  */
 const api = new Hono<AppEnv>();
+
+/**
+ * Secrets API - Protected by gateway token
+ * Allows container scripts to fetch secrets dynamically without restart
+ */
+api.get('/secrets/:name', async (c) => {
+  const secretName = c.req.param('name');
+  const gatewayToken = c.env.MOLTBOT_GATEWAY_TOKEN;
+
+  // Validate gateway token auth
+  const authHeader = c.req.header('Authorization');
+  if (!gatewayToken) {
+    return c.json({ error: 'Gateway token not configured' }, 500);
+  }
+
+  if (!authHeader) {
+    return c.json({ error: 'Authorization header required' }, 401);
+  }
+
+  // Support both "Bearer <token>" and raw token
+  const providedToken = authHeader.startsWith('Bearer ')
+    ? authHeader.slice(7)
+    : authHeader;
+
+  if (providedToken !== gatewayToken) {
+    return c.json({ error: 'Invalid authorization token' }, 403);
+  }
+
+  // Check if secret is in allowlist
+  if (!SECRETS_ALLOWLIST.includes(secretName as (typeof SECRETS_ALLOWLIST)[number])) {
+    return c.json({ error: 'Secret not in allowlist', allowlist: [...SECRETS_ALLOWLIST] }, 403);
+  }
+
+  // Get secret value from env
+  const value = c.env[secretName as keyof MoltbotEnv];
+
+  if (value === undefined || value === null || value === '') {
+    return c.json({ error: 'Secret not found or empty', name: secretName }, 404);
+  }
+
+  // Return as plain text for easy consumption by shell scripts
+  return c.text(String(value));
+});
 
 /**
  * Admin API routes - all protected by Cloudflare Access
