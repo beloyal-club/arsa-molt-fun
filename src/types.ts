@@ -8,8 +8,9 @@ export interface MoltbotEnv {
   ASSETS: Fetcher; // Assets binding for admin UI static files
   MOLTBOT_BUCKET: R2Bucket; // R2 bucket for persistent storage
   // Cloudflare Secrets Store binding for runtime secret access
-  SECRETS?: {
-    get(name: string): Promise<string | null>;
+  // Secrets Store bindings - one per secret (add more as needed)
+  TEST_SECRET?: {
+    get(): Promise<string>;
   };
   // Cloudflare AI Gateway configuration (preferred)
   CF_AI_GATEWAY_ACCOUNT_ID?: string; // Cloudflare account ID for AI Gateway
