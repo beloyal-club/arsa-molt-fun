@@ -25,7 +25,7 @@ secrets.get('/:name', async (c) => {
 
   // Secrets Store bindings are accessed as env.<BINDING_NAME>.get()
   // Each binding must be declared in wrangler.jsonc
-  const binding = (env as Record<string, { get?: () => Promise<string> }>)[bindingName];
+  const binding = (env as unknown as Record<string, { get?: () => Promise<string> }>)[bindingName];
   
   if (!binding || typeof binding.get !== 'function') {
     console.log(`[SECRETS] Binding '${bindingName}' not found or not a Secrets Store binding`);
@@ -49,7 +49,7 @@ secrets.get('/', (c) => {
   // Return known bindings (add more as they're configured)
   const knownBindings = ['TEST_SECRET'];
   const available = knownBindings.filter(name => {
-    const binding = (c.env as Record<string, unknown>)[name];
+    const binding = (c.env as unknown as Record<string, unknown>)[name];
     return binding && typeof (binding as { get?: unknown }).get === 'function';
   });
   
