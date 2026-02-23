@@ -29,7 +29,13 @@ codemode.post('/execute', async (c) => {
     if (!codeTool.execute) {
       return c.json({ success: false, error: 'Tool execute function not available' }, 500);
     }
-    const result = await codeTool.execute({ code }, {});
+    const result = await codeTool.execute(
+      { code },
+      {
+        toolCallId: `codemode-${crypto.randomUUID()}`,
+        messages: [],
+      }
+    );
     return c.json({ success: true, result });
   } catch (e) {
     const error = e instanceof Error ? e.message : 'Unknown error';
