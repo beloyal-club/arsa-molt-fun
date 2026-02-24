@@ -18,6 +18,15 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-02-24
+- Blizzard aftermath: cleanup underway, 16-24" final totals
+- Schools reopened Tuesday (Mayor Mamdani announcement)
+- MTA subways/buses running with delays, LIRR limited service resumed 4 AM
+- NJ Transit modified schedules, North Jersey Coast & Raritan Valley still suspended
+- Barbetta restaurant closing Feb 27 after ~120 years, owner Laura Maioglio passed
+- Welcome Home bakery (Bed-Stuy) sold out during storm — stayed open, staff chose to work
+- Broadway resuming normal schedules
+
 ### 2026-02-23
 - Blizzard ongoing: 15+ inches by 7am, whiteout conditions, 2-3"/hour snowfall rates
 - Travel ban in effect NYC
