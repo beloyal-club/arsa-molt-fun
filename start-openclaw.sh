@@ -283,13 +283,16 @@ if (process.env.TELEGRAM_BOT_TOKEN) {
 }
 
 // Discord configuration
+// Preserve existing discord config (guilds, groupPolicy) while updating token/dm
 if (process.env.DISCORD_BOT_TOKEN) {
     const dmPolicy = process.env.DISCORD_DM_POLICY || 'pairing';
     const dm = { policy: dmPolicy };
     if (dmPolicy === 'open') {
         dm.allowFrom = ['*'];
     }
+    const existingDiscord = config.channels.discord || {};
     config.channels.discord = {
+        ...existingDiscord,
         token: process.env.DISCORD_BOT_TOKEN,
         enabled: true,
         dm: dm,
