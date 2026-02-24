@@ -31,7 +31,7 @@ RUN mkdir -p /root/.openclaw/workspace \
     && mkdir -p /root/.openclaw/workspace/memory
 
 # Copy startup script
-# Build cache bust: 2026-02-15-v30-disable-device-auth
+# Build cache bust: 2026-02-24-v31-kv-config-fetch
 COPY start-openclaw.sh /usr/local/bin/start-openclaw.sh
 # Safety net: ensure LF line endings (in case .gitattributes didn't apply)
 RUN sed -i 's/\r$//' /usr/local/bin/start-openclaw.sh \
