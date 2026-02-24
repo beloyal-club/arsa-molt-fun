@@ -283,33 +283,87 @@ if (process.env.TELEGRAM_BOT_TOKEN) {
 }
 
 // Discord configuration
-// Preserve existing discord config (guilds, groupPolicy) while updating token/dm
-if (process.env.DISCORD_BOT_TOKEN) {
-    const dmPolicy = process.env.DISCORD_DM_POLICY || 'pairing';
-    const dm = { policy: dmPolicy };
-    if (dmPolicy === 'open') {
-        dm.allowFrom = ['*'];
+// Fetch config from KV if available, then merge with secrets
+const fetchKvConfig = async () => {
+    const accountId = process.env.CF_ACCOUNT_ID;
+    const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+    const kvNamespaceId = process.env.OPENCLAW_KV_NAMESPACE_ID || '177485fca6a54ac7bafe23498b2f6eba';
+    
+    if (!accountId || !apiToken) {
+        console.log('KV fetch: missing CF_ACCOUNT_ID or CLOUDFLARE_API_TOKEN');
+        return null;
     }
-    const existingDiscord = config.channels.discord || {};
-    config.channels.discord = {
-        ...existingDiscord,
-        token: process.env.DISCORD_BOT_TOKEN,
-        enabled: true,
-        dm: dm,
-    };
-}
+    
+    const https = require('https');
+    const key = encodeURIComponent('channels/discord');
+    const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/storage/kv/namespaces/${kvNamespaceId}/values/${key}`;
+    
+    return new Promise((resolve) => {
+        const req = https.get(url, { headers: { 'Authorization': `Bearer ${apiToken}` } }, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+                if (res.statusCode === 200) {
+                    try {
+                        resolve(JSON.parse(data));
+                    } catch (e) {
+                        console.log('KV fetch: failed to parse JSON:', e.message);
+                        resolve(null);
+                    }
+                } else {
+                    console.log('KV fetch: status', res.statusCode);
+                    resolve(null);
+                }
+            });
+        });
+        req.on('error', (e) => {
+            console.log('KV fetch: error', e.message);
+            resolve(null);
+        });
+        req.setTimeout(5000, () => {
+            req.destroy();
+            resolve(null);
+        });
+    });
+};
 
-// Slack configuration
-if (process.env.SLACK_BOT_TOKEN && process.env.SLACK_APP_TOKEN) {
-    config.channels.slack = {
-        botToken: process.env.SLACK_BOT_TOKEN,
-        appToken: process.env.SLACK_APP_TOKEN,
-        enabled: true,
-    };
-}
-
-fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
-console.log('Configuration patched successfully');
+// Async wrapper for KV-based config
+(async () => {
+    const kvDiscord = await fetchKvConfig();
+    if (kvDiscord) {
+        console.log('Loaded Discord config from KV:', JSON.stringify(kvDiscord));
+    }
+    
+    if (process.env.DISCORD_BOT_TOKEN) {
+        const dmPolicy = process.env.DISCORD_DM_POLICY || 'pairing';
+        const dm = { policy: dmPolicy };
+        if (dmPolicy === 'open') {
+            dm.allowFrom = ['*'];
+        }
+        // KV config takes precedence, then existing config, then defaults
+        const existingDiscord = config.channels.discord || {};
+        config.channels.discord = {
+            ...existingDiscord,
+            ...(kvDiscord || {}),
+            token: process.env.DISCORD_BOT_TOKEN,
+            enabled: true,
+            dm: dm,
+        };
+    }
+    
+    // Slack configuration
+    if (process.env.SLACK_BOT_TOKEN && process.env.SLACK_APP_TOKEN) {
+        config.channels.slack = {
+            botToken: process.env.SLACK_BOT_TOKEN,
+            appToken: process.env.SLACK_APP_TOKEN,
+            enabled: true,
+        };
+    }
+    
+    // Write final config
+    fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+    console.log('Configuration patched successfully');
+})();
 EOFPATCH
 
 # ============================================================
