@@ -278,3 +278,95 @@ Key docs:
 - `AGENTS.md` — Execution routing, session naming conventions
 
 **TODO:** Create separate branch to implement full factory pattern.
+
+## 2026-02-24
+
+### Config + Secrets Architecture (KV Store)
+
+**Problem:** Discord guilds config kept getting wiped on container restart because `start-openclaw.sh` was overwriting the entire discord config object.
+
+**Solution:** Use dedicated Cloudflare KV for config, Secrets for tokens.
+
+#### Two Storage Layers
+
+| Store | Purpose | Examples |
+|-------|---------|----------|
+| **Cloudflare KV** | Non-sensitive config | Discord guilds, channel allowlists, preferences |
+| **Cloudflare Secrets** | Sensitive tokens | DISCORD_BOT_TOKEN, API keys |
+
+#### KV Namespace: OPENCLAW_CONFIG
+
+- **Namespace ID:** `177485fca6a54ac7bafe23498b2f6eba`
+- **Account ID:** `6a93f4e0f785a77f95436f494bb13fa3`
+
+**Keys stored:**
+| Key | Content |
+|-----|---------|
+| `channels/discord` | `{"guilds": {...}, "groupPolicy": "allowlist", "dm": {...}}` |
+
+#### How It Works
+
+1. **On container startup** (`start-openclaw.sh`):
+   - Fetches config from KV via Cloudflare API
+   - Merges with secrets (tokens from env vars)
+   - Writes final config to `/root/.openclaw/openclaw.json`
+
+2. **To update config:**
+   - Update KV via API (not local file)
+   - Container restart picks up changes
+   - Or manually apply + reload
+
+#### API Examples
+
+**Read from KV:**
+```bash
+curl -s "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/177485fca6a54ac7bafe23498b2f6eba/values/channels%2Fdiscord" \
+  -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"
+```
+
+**Write to KV:**
+```bash
+curl -X PUT "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/177485fca6a54ac7bafe23498b2f6eba/values/channels%2Fdiscord" \
+  -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"guilds": {...}, "groupPolicy": "allowlist"}'
+```
+
+#### Commits
+
+- `a793f2b` — Initial fix to preserve existing discord config (spread operator)
+- `76b44df` — Fetch Discord config from KV on startup
+
+#### Required Env Vars in Container
+
+| Var | Purpose |
+|-----|---------|
+| `CF_ACCOUNT_ID` | Cloudflare account for API calls |
+| `CLOUDFLARE_API_TOKEN` | API token with KV read access |
+| `OPENCLAW_KV_NAMESPACE_ID` | Optional override (defaults to hardcoded ID) |
+
+#### Current Discord Config in KV
+
+```json
+{
+  "guilds": {
+    "1064272702254354434": {
+      "channels": {
+        "1475231662332969192": {}
+      }
+    }
+  },
+  "groupPolicy": "allowlist",
+  "dm": {
+    "policy": "pairing"
+  }
+}
+```
+
+#### Future Expansion
+
+Can add more keys to KV for other channel configs:
+- `channels/telegram`
+- `channels/slack`
+- `agents/defaults`
+- `preferences/*`
