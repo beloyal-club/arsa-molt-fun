@@ -9,6 +9,7 @@
 - **NYCHA/housing instability**: 2026-02-16 | count: 1 | Federal funding cuts affecting local housing
 - **MSG company split**: 2026-02-23 | count: 1 | Dolan considering separating Knicks/Rangers into separate companies
 - **Washington Heights food scene**: 2026-02-23 | count: 1 | Emerging as "hidden culinary gem"
+- **Texas BBQ in NYC**: 2026-02-25 | count: 1 | Kirbee's (Barbs B Q + Goldee's) coming to Greenpoint
 
 ## Global Events Tracking
 <!-- Major world events with local relevance -->
@@ -18,6 +19,16 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-02-25
+- Blizzard cleanup ongoing, expected to take all week
+- NYC hiring emergency snow shovelers at $30/hr
+- Transit mostly restored; NJ Transit North Jersey Coast & Raritan Valley still suspended
+- Obie Awards event postponed due to blizzard
+- "Meat Suit, or the Shitshow of Motherhood" opens at Second Stage
+- Kirbee's BBQ announced: Greenpoint, Barbs B Q + Goldee's collab
+- Barbetta final service Feb 27
+- Restaurants struggling with vendor deliveries post-blizzard
+
 ### 2026-02-24
 - Blizzard aftermath: cleanup underway, 16-24" final totals
 - Schools reopened Tuesday (Mayor Mamdani announcement)
