@@ -332,23 +332,37 @@ const fetchKvConfig = async () => {
     const kvDiscord = await fetchKvConfig();
     if (kvDiscord) {
         console.log('Loaded Discord config from KV:', JSON.stringify(kvDiscord));
+    } else {
+        console.log('KV fetch returned null, using defaults');
     }
     
     if (process.env.DISCORD_BOT_TOKEN) {
+        // Build default dm config from env
         const dmPolicy = process.env.DISCORD_DM_POLICY || 'pairing';
-        const dm = { policy: dmPolicy };
+        const defaultDm = { policy: dmPolicy };
         if (dmPolicy === 'open') {
-            dm.allowFrom = ['*'];
+            defaultDm.allowFrom = ['*'];
         }
-        // KV config takes precedence, then existing config, then defaults
+        
+        // KV config takes FULL precedence over defaults
+        // Only override token and enabled (secrets from env)
         const existingDiscord = config.channels.discord || {};
         config.channels.discord = {
+            // Start with existing (from R2 restore)
             ...existingDiscord,
+            // KV overrides everything (guilds, groupPolicy, dm, etc.)
             ...(kvDiscord || {}),
+            // Secrets from env always override (not in KV)
             token: process.env.DISCORD_BOT_TOKEN,
             enabled: true,
-            dm: dm,
         };
+        
+        // Only set dm if KV didn't provide it
+        if (!config.channels.discord.dm) {
+            config.channels.discord.dm = defaultDm;
+        }
+        
+        console.log('Final Discord config:', JSON.stringify(config.channels.discord, null, 2));
     }
     
     // Slack configuration
@@ -363,7 +377,10 @@ const fetchKvConfig = async () => {
     // Write final config
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     console.log('Configuration patched successfully');
-})();
+})().catch(err => {
+    console.error('Config patch failed:', err);
+    process.exit(1);
+});
 EOFPATCH
 
 # ============================================================
