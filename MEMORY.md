@@ -279,6 +279,41 @@ Key docs:
 
 **TODO:** Create separate branch to implement full factory pattern.
 
+## 2026-02-25
+
+### Lega Bot Project (IN PROGRESS)
+
+Building **Lega** — a Discord AI bot for **mylegacyinc** community (Mississauga non-profit for Muslim youth, sports, gaming).
+
+**Architecture:** Same as Breth (OpenClaw on Cloudflare Container)
+
+**Resources Created:**
+| Resource | Value |
+|----------|-------|
+| GitHub Repo | `beloyal-club/lega-bot` |
+| R2 Bucket | `lega-bot` |
+| KV Namespace | `LEGA_CONFIG` — `b7d0613e07ac4c99b06e84bc9163b7b5` |
+| Discord Server ID | `1462305906980290661` |
+| Discord Channel ID | `1462309122837053688` |
+| Discord App ID | `1476042068424917140` |
+| Discord Public Key | `e514b53236a1a9b549765a9ea47361d9ee2c891d86c2ab17a3e11232423738c6` |
+
+**Personality:** GTA mandem from Sauga — gaming, sports, halal vibes. See `lega-bot/SOUL.md`.
+
+**Status:**
+- [x] Repo created and pushed
+- [x] R2 bucket created
+- [x] KV namespace + Discord config set
+- [x] Workspace files customized (SOUL.md, IDENTITY.md, etc.)
+- [ ] Worker deployed
+- [ ] Discord bot token added
+- [ ] GitHub Actions secrets set up
+- [ ] Bot online and tested
+
+**Waiting on:** `LEGA_DISCORD_BOT_TOKEN` from user
+
+---
+
 ## 2026-02-24
 
 ### Config + Secrets Architecture (KV Store)
