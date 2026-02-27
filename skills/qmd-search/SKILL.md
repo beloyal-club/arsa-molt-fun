@@ -2,6 +2,11 @@
 
 Local semantic search for workspace docs using [tobi/qmd](https://github.com/tobi/qmd). BM25 full-text search + vector semantic search with OpenAI embeddings.
 
+**Reference:** [OpenClaw Memory Docs - QMD Backend](https://docs.openclaw.ai/concepts/memory#qmd-backend-experimental)
+
+> Note: OpenClaw's native `memory.backend = "qmd"` uses local llama.cpp for embeddings.
+> This setup uses **OpenAI embeddings** instead (works on memory-constrained containers).
+
 ## Quick Commands
 
 ```bash
@@ -96,11 +101,28 @@ The qmd index is backed up to R2 via workspace sync. On container restart, resto
 rsync -r --no-times /data/moltbot/openclaw/qmd-cache/ ~/.cache/qmd/
 ```
 
+## Lifecycle
+
+### On Startup (workspace-restore.sh)
+- QMD cache restored from R2 (`/data/moltbot/openclaw/qmd-cache/`)
+- Index ready for immediate search
+
+### On Heartbeat (HEARTBEAT.md)
+- `qmd update` refreshes BM25 index
+- R2 sync backs up qmd cache
+
+### Manual Embedding Refresh
+After adding new docs, re-run OpenAI embeddings:
+```bash
+cd /root/.openclaw/workspace/skills/qmd-search
+node scripts/openai-embed.mjs
+```
+
 ## Limitations
 
-- Vector search requires llama.cpp compilation (memory-intensive)
-- BM25 search works without embeddings
-- Index needs manual update after file changes
+- Vector search uses OpenAI API (not fully local)
+- BM25 search works without embeddings/API
+- Index needs `qmd update` after file changes
 
 ## Adding New Collections
 
