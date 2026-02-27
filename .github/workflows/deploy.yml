@@ -29,6 +29,7 @@ jobs:
         run: npm run typecheck
 
       - name: Run tests
+        if: github.event_name == 'pull_request'
         run: npm test
 
       - name: Build
