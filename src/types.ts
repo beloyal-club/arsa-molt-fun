@@ -62,6 +62,8 @@ export interface MoltbotEnv {
   YOUTUBE_USER_ID?: string;
   YOUTUBE_CHANNEL_ID?: string;
   YOUTUBE_REFRESH_TOKEN?: string;
+  // Convex backend
+  CONVEX_DEPLOY_KEY?: string; // Deploy key for Convex project (knowledge base)
 }
 
 /**

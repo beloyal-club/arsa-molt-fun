@@ -58,6 +58,8 @@ export function buildEnvVars(env: MoltbotEnv): Record<string, string> {
   if (env.YOUTUBE_USER_ID) envVars.YOUTUBE_USER_ID = env.YOUTUBE_USER_ID;
   if (env.YOUTUBE_CHANNEL_ID) envVars.YOUTUBE_CHANNEL_ID = env.YOUTUBE_CHANNEL_ID;
   if (env.YOUTUBE_REFRESH_TOKEN) envVars.YOUTUBE_REFRESH_TOKEN = env.YOUTUBE_REFRESH_TOKEN;
+  // Convex backend
+  if (env.CONVEX_DEPLOY_KEY) envVars.CONVEX_DEPLOY_KEY = env.CONVEX_DEPLOY_KEY;
 
   return envVars;
 }
