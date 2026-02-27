@@ -14,7 +14,7 @@
   3. No automatic sync was set up
   
 ### What we fixed:
-- Cleaned R2 — removed repo files, kept only: IDENTITY.md, USER.md, MEMORY.md, SOUL.md, TOOLS.md, HEARTBEAT.md, AGENTS.md, memory/, skills/
+- Cleaned R2 — removed repo files, kept only workspace files (see list below)
 - Created sync scripts at `/root/.openclaw/scripts/`:
   - `workspace-sync.sh` — syncs workspace → R2
   - `workspace-restore.sh` — restores R2 → workspace on startup
@@ -492,3 +492,37 @@ Uses 1536-dimension embeddings (OpenAI text-embedding-3-small compatible). Pass 
 - User profile (Arxa, NYC, sports, preferences)
 - Infrastructure facts (Breth identity, Discord config)
 - Lega Bot project status
+
+### Convex Knowledge Base Improvements
+
+Updated the Convex integration for better persistence and session context:
+
+#### Worker Secrets Added
+- `CONVEX_DEPLOY_KEY` — Now stored as Cloudflare Worker secret for persistence across restarts
+
+#### Worker Code Updated
+- Added `CONVEX_DEPLOY_KEY` to `src/types.ts` (MoltbotEnv interface)
+- Added passthrough in `src/gateway/env.ts` (buildEnvVars function)
+- Changes require deploy via GitHub Actions
+
+#### Workspace Context Files
+
+These files are loaded on session start and synced to R2:
+
+| File | Purpose |
+|------|---------|
+| `IDENTITY.md` | Who Breth is |
+| `USER.md` | About Arxa |
+| `SOUL.md` | Personality and values |
+| `MEMORY.md` | This file - curated long-term memory |
+| `TOOLS.md` | Tool-specific notes and preferences |
+| `HEARTBEAT.md` | Periodic tasks and cron jobs |
+| `AGENTS.md` | Agent instructions (from worker repo) |
+| `BOOTSTRAP.md` | Convex context loader - runs on session start |
+
+#### HEARTBEAT.md Updates
+
+Added periodic task to store important context to Convex:
+- Identifies high-importance context from conversations
+- Stores decisions, facts, tasks to Convex
+- Uses importance scoring (0.7+ gets stored)
