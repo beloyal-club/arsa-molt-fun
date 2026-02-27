@@ -1,12 +1,16 @@
 # QMD Search Skill
 
-Local semantic search for workspace docs using [tobi/qmd](https://github.com/tobi/qmd). BM25 full-text search + vector semantic search (when embeddings available).
+Local semantic search for workspace docs using [tobi/qmd](https://github.com/tobi/qmd). BM25 full-text search + vector semantic search with OpenAI embeddings.
 
 ## Quick Commands
 
 ```bash
-# Fast keyword search
+# Fast keyword search (BM25)
 qmd search "discord config" -n 10
+
+# Semantic search (OpenAI embeddings)
+cd /root/.openclaw/workspace/skills/qmd-search
+node scripts/openai-vsearch.mjs "how to manage secrets" -n 5
 
 # Search within a collection
 qmd search "API key" -c skills
@@ -19,6 +23,9 @@ qmd ls workspace
 
 # Update index after file changes
 qmd update
+
+# Re-generate OpenAI embeddings
+node scripts/openai-embed.mjs
 ```
 
 ## Collections
