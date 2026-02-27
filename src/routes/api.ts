@@ -366,4 +366,70 @@ adminApi.post('/gateway/restart', async (c) => {
 // Mount admin API routes under /admin
 api.route('/admin', adminApi);
 
+/**
+ * Transcribe API - Uses OpenAI Whisper for speech-to-text
+ * Protected by gateway token (same as secrets API)
+ */
+api.post('/transcribe', async (c) => {
+  const gatewayToken = c.env.MOLTBOT_GATEWAY_TOKEN;
+  const openaiKey = c.env.OPENAI_API_KEY;
+
+  // Validate gateway token auth
+  const authHeader = c.req.header('Authorization');
+  if (!gatewayToken) {
+    return c.json({ error: 'Gateway token not configured' }, 500);
+  }
+
+  if (!authHeader) {
+    return c.json({ error: 'Authorization header required' }, 401);
+  }
+
+  const providedToken = authHeader.startsWith('Bearer ')
+    ? authHeader.slice(7)
+    : authHeader;
+
+  if (providedToken !== gatewayToken) {
+    return c.json({ error: 'Invalid authorization token' }, 403);
+  }
+
+  if (!openaiKey) {
+    return c.json({ error: 'OpenAI API key not configured' }, 500);
+  }
+
+  try {
+    // Get the audio file from the request
+    const formData = await c.req.formData();
+    const audioFile = formData.get('audio');
+
+    if (!audioFile || !(audioFile instanceof File)) {
+      return c.json({ error: 'No audio file provided' }, 400);
+    }
+
+    // Forward to OpenAI Whisper API
+    const whisperFormData = new FormData();
+    whisperFormData.append('file', audioFile, 'audio.webm');
+    whisperFormData.append('model', 'whisper-1');
+    whisperFormData.append('response_format', 'json');
+
+    const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${openaiKey}`,
+      },
+      body: whisperFormData,
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return c.json({ error: 'Whisper API error', details: errorText }, 500);
+    }
+
+    const result = await response.json() as { text: string };
+    return c.json({ text: result.text });
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return c.json({ error: errorMessage }, 500);
+  }
+});
+
 export { api };

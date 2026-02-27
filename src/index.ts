@@ -443,6 +443,223 @@ app.all('*', async (c) => {
   newHeaders.set('X-Worker-Debug', 'proxy-to-moltbot');
   newHeaders.set('X-Debug-Path', url.pathname);
 
+  // Inject voice input script into HTML pages (Control UI)
+  const contentType = httpResponse.headers.get('content-type') || '';
+  if (contentType.includes('text/html') && httpResponse.body) {
+    const html = await httpResponse.text();
+    const gatewayToken = c.env.MOLTBOT_GATEWAY_TOKEN || '';
+    
+    // Inject voice input script before </body>
+    const voiceScript = `
+<script>
+(function() {
+  const GATEWAY_TOKEN = '${gatewayToken}';
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let isRecording = false;
+  
+  // Create voice button
+  function createVoiceButton() {
+    // Wait for chat input to exist
+    const checkForInput = setInterval(() => {
+      // Look for the chat input area
+      const chatForm = document.querySelector('form[data-chat-form]') || 
+                       document.querySelector('textarea')?.closest('form') ||
+                       document.querySelector('[class*="chat"]')?.querySelector('form');
+      
+      if (!chatForm) return;
+      
+      // Don't add if already exists
+      if (document.getElementById('voice-input-btn')) {
+        clearInterval(checkForInput);
+        return;
+      }
+      
+      clearInterval(checkForInput);
+      
+      const btn = document.createElement('button');
+      btn.id = 'voice-input-btn';
+      btn.type = 'button';
+      btn.innerHTML = '🎤';
+      btn.title = 'Hold to speak';
+      btn.style.cssText = \`
+        position: fixed;
+        bottom: 80px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: none;
+        background: #4f46e5;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 9999;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      \`;
+      
+      btn.addEventListener('mousedown', startRecording);
+      btn.addEventListener('mouseup', stopRecording);
+      btn.addEventListener('mouseleave', stopRecording);
+      btn.addEventListener('touchstart', (e) => { e.preventDefault(); startRecording(); });
+      btn.addEventListener('touchend', stopRecording);
+      
+      document.body.appendChild(btn);
+      console.log('[Voice] Button added');
+    }, 500);
+  }
+  
+  async function startRecording() {
+    if (isRecording) return;
+    
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+      audioChunks = [];
+      
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) audioChunks.push(e.data);
+      };
+      
+      mediaRecorder.onstop = async () => {
+        stream.getTracks().forEach(t => t.stop());
+        if (audioChunks.length === 0) return;
+        
+        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+        await transcribeAndSend(audioBlob);
+      };
+      
+      mediaRecorder.start();
+      isRecording = true;
+      
+      const btn = document.getElementById('voice-input-btn');
+      if (btn) {
+        btn.style.background = '#dc2626';
+        btn.innerHTML = '⏺️';
+      }
+      
+      console.log('[Voice] Recording started');
+    } catch (err) {
+      console.error('[Voice] Mic access denied:', err);
+      alert('Microphone access denied. Please allow mic access and try again.');
+    }
+  }
+  
+  function stopRecording() {
+    if (!isRecording || !mediaRecorder) return;
+    
+    mediaRecorder.stop();
+    isRecording = false;
+    
+    const btn = document.getElementById('voice-input-btn');
+    if (btn) {
+      btn.style.background = '#4f46e5';
+      btn.innerHTML = '🎤';
+    }
+    
+    console.log('[Voice] Recording stopped');
+  }
+  
+  async function transcribeAndSend(audioBlob) {
+    const btn = document.getElementById('voice-input-btn');
+    if (btn) {
+      btn.innerHTML = '⏳';
+      btn.style.background = '#f59e0b';
+    }
+    
+    try {
+      const formData = new FormData();
+      formData.append('audio', audioBlob, 'recording.webm');
+      
+      const response = await fetch('/api/transcribe', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + GATEWAY_TOKEN
+        },
+        body: formData
+      });
+      
+      if (!response.ok) {
+        throw new Error('Transcription failed: ' + response.status);
+      }
+      
+      const result = await response.json();
+      const text = result.text?.trim();
+      
+      if (text) {
+        console.log('[Voice] Transcribed:', text);
+        injectTextToChat(text);
+      }
+    } catch (err) {
+      console.error('[Voice] Transcription error:', err);
+      alert('Transcription failed: ' + err.message);
+    } finally {
+      if (btn) {
+        btn.innerHTML = '🎤';
+        btn.style.background = '#4f46e5';
+      }
+    }
+  }
+  
+  function injectTextToChat(text) {
+    // Find textarea and inject text
+    const textarea = document.querySelector('textarea');
+    if (textarea) {
+      // Set value and dispatch input event to trigger React state update
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+        window.HTMLTextAreaElement.prototype, 'value'
+      ).set;
+      nativeInputValueSetter.call(textarea, text);
+      textarea.dispatchEvent(new Event('input', { bubbles: true }));
+      
+      // Focus and auto-submit after a brief delay
+      textarea.focus();
+      setTimeout(() => {
+        // Find and click submit button or press Enter
+        const form = textarea.closest('form');
+        if (form) {
+          const submitBtn = form.querySelector('button[type="submit"]') || 
+                           form.querySelector('button:not([type="button"])');
+          if (submitBtn) {
+            submitBtn.click();
+          } else {
+            // Simulate Enter key
+            textarea.dispatchEvent(new KeyboardEvent('keydown', {
+              key: 'Enter',
+              code: 'Enter',
+              keyCode: 13,
+              which: 13,
+              bubbles: true
+            }));
+          }
+        }
+      }, 100);
+    }
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createVoiceButton);
+  } else {
+    createVoiceButton();
+  }
+})();
+</script>
+`;
+    
+    const injectedHtml = html.replace('</body>', voiceScript + '</body>');
+    
+    return new Response(injectedHtml, {
+      status: httpResponse.status,
+      statusText: httpResponse.statusText,
+      headers: newHeaders,
+    });
+  }
+
   return new Response(httpResponse.body, {
     status: httpResponse.status,
     statusText: httpResponse.statusText,
