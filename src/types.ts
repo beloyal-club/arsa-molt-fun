@@ -64,6 +64,8 @@ export interface MoltbotEnv {
   YOUTUBE_REFRESH_TOKEN?: string;
   // Convex backend
   CONVEX_DEPLOY_KEY?: string; // Deploy key for Convex project (knowledge base)
+  // 1Password Service Account
+  OP_SERVICE_ACCOUNT_TOKEN?: string; // 1Password service account for secrets management
 }
 
 /**
