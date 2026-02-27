@@ -405,3 +405,90 @@ Can add more keys to KV for other channel configs:
 - `channels/slack`
 - `agents/defaults`
 - `preferences/*`
+
+---
+
+## 2026-02-27
+
+### Convex Knowledge Base Setup
+
+Set up **Convex** as a semantic memory and knowledge store for persistent data and reasoning.
+
+**Project:** `next-sardine-289`
+**Cloud URL:** `https://next-sardine-289.convex.cloud`
+**HTTP Actions:** `https://next-sardine-289.convex.site`
+
+#### Schema (Tables)
+
+| Table | Purpose |
+|-------|---------|
+| `memories` | Core semantic memory (facts, events, decisions, todos) with vector search |
+| `conversations` | Conversation history with embeddings |
+| `documents` | Longer-form content (files, scraped pages) |
+| `scrapedData` | Raw scraped data for processing |
+| `entities` | People, places, things extracted from memories |
+
+#### Memory Types
+
+| Type | Use For |
+|------|---------|
+| `fact` | Persistent knowledge (user prefs, config) |
+| `event` | Things that happened (deploys, decisions) |
+| `preference` | User preferences |
+| `decision` | Decisions made |
+| `todo` | Tasks |
+| `conversation` | Notable conversation snippets |
+| `note` | General notes |
+
+#### HTTP Endpoints
+
+```bash
+# Store memory
+POST https://next-sardine-289.convex.site/memories
+
+# Search (text or semantic with embedding)
+POST https://next-sardine-289.convex.site/memories/search
+
+# Get recent
+GET https://next-sardine-289.convex.site/memories/recent
+
+# Stats
+GET https://next-sardine-289.convex.site/memories/stats
+
+# Health check
+GET https://next-sardine-289.convex.site/health
+```
+
+#### Local Skill
+
+Created `skills/convex-knowledge/` with:
+- `SKILL.md` — Usage documentation
+- `scripts/query.sh` — Search memories
+- `scripts/store.sh` — Store new memory
+- `scripts/recent.sh` — Get recent memories
+
+#### Convex Project Files
+
+Located at `/root/.openclaw/workspace/convex-knowledge/`:
+- `convex/schema.ts` — Database schema with vector indexes
+- `convex/memories.ts` — Memory CRUD + semantic search
+- `convex/conversations.ts` — Conversation storage
+- `convex/http.ts` — HTTP action endpoints
+
+#### Secrets
+
+```
+CONVEX_DEPLOY_KEY=dev:next-sardine-289|...
+```
+
+Stored in `.env.local` in convex-knowledge directory. For Worker persistence, add as Cloudflare secret.
+
+#### Semantic Search
+
+Uses 1536-dimension embeddings (OpenAI text-embedding-3-small compatible). Pass `embedding` array to search endpoint for semantic retrieval.
+
+#### Initial Data Loaded
+
+- User profile (Arxa, NYC, sports, preferences)
+- Infrastructure facts (Breth identity, Discord config)
+- Lega Bot project status
