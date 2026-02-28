@@ -529,7 +529,52 @@ Added periodic task to store important context to Convex:
 
 ---
 
+## 2026-02-27 (Recovered from Git)
+
+### 1Password Secrets Integration
+- Added `OP_SERVICE_ACCOUNT_TOKEN` for 1Password secrets management
+- Skill: `skills/1password-secrets/` with scripts for vault access
+- Commit: `70ded29`
+
+### Voice-to-Voice Feature
+- Added Whisper transcription + mic button injection
+- Enables voice input in the web UI
+- Commit: `74670df`
+
+### Container Upgrade
+- Upgraded to `standard-3` tier (2 vCPU, 8 GiB RAM)
+- Better performance for agent workloads
+- Commit: `0b3d63a`
+
+### Lega Bot Deployed
+- Worker deployed successfully
+- Discord token added, all secrets configured
+- GitHub Actions CI/CD working
+
+---
+
 ## 2026-02-28
+
+### Amnesia Recovery (Evening Session)
+
+Container was redeployed, workspace restore didn't run. Had to manually recover:
+
+1. **R2 backup existed** — 74 files at `openclaw/workspace/`
+2. **GitHub repo current** — Full workspace with 19KB MEMORY.md
+3. **Convex alive** — 7 memories with embeddings at `next-sardine-289`
+4. **qmd not installed** — Reinstalled, indexed 28 files
+
+**Recovery steps taken:**
+- Restored workspace from R2 via S3 API
+- Copied latest from GitHub repo
+- Restored sync scripts from R2
+- Installed qmd, created workspace collection
+- Updated HEARTBEAT.md with proper memory capture
+
+**Missing secrets identified:**
+- BRAVE_API_KEY, CDP_SECRET, YOUTUBE_* (6), OP_SERVICE_ACCOUNT_TOKEN, CONVEX_DEPLOY_KEY
+
+**Root cause:** `start-openclaw.sh` still not calling workspace-restore.sh on startup.
 
 ### Simplified Memory Architecture
 
