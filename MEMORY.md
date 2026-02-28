@@ -526,3 +526,34 @@ Added periodic task to store important context to Convex:
 - Identifies high-importance context from conversations
 - Stores decisions, facts, tasks to Convex
 - Uses importance scoring (0.7+ gets stored)
+
+---
+
+## 2026-02-28
+
+### Simplified Memory Architecture
+
+**Decision:** Dropped Convex in favor of OpenClaw's native memory search.
+
+**Why:**
+- OpenClaw already has built-in OpenAI embeddings support (`text-embedding-3-small`)
+- qmd's local models don't work in CF container (no cmake, CPU-only)
+- Convex was overkill — extra service, extra complexity, same OpenAI embeddings
+
+**New setup:**
+- **Semantic search**: `memory_search` tool → OpenAI embeddings (native)
+- **Keyword search**: `qmd search` → BM25 (fast, no models)
+- **Storage**: MEMORY.md + memory/*.md (unchanged)
+
+**Config added:**
+```json5
+agents.defaults.workspace = "/root/.openclaw/workspace"
+agents.defaults.memorySearch.provider = "openai"
+agents.defaults.memorySearch.model = "text-embedding-3-small"
+```
+
+**Removed from HEARTBEAT.md:**
+- Convex memory maintenance task
+- All Convex HTTP API calls
+
+**BOOTSTRAP.md simplified** to just reference native memory_search.
