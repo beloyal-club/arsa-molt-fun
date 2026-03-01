@@ -37,4 +37,18 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+## Git
+
+- **Always commit as:** PRTLCTRL
+- **Email:** PRTLCTRL@users.noreply.github.com
+- **Token:** GITHUB_PERSONAL_ACCESS_TOKEN (from 1Password or env)
+
+On fresh container, run:
+```bash
+git config --global user.name "PRTLCTRL"
+git config --global user.email "PRTLCTRL@users.noreply.github.com"
+```
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.
