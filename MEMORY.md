@@ -602,3 +602,119 @@ agents.defaults.memorySearch.model = "text-embedding-3-small"
 - All Convex HTTP API calls
 
 **BOOTSTRAP.md simplified** to just reference native memory_search.
+
+## 2026-02-28 (Evening)
+
+### 1Password Integration Complete! 🎉
+
+**Finally solved the secrets amnesia problem** by storing all critical secrets in 1Password.
+
+#### Setup
+- **Vault:** `prtl` (id: `5wnmvuerwnz5tl6doa7tdw6hwy`)
+- **Service Account:** `prtl-workers`
+- **1Password CLI:** v2.30.0 (pre-installed in container)
+
+#### Secrets Stored in 1Password (`prtl` vault)
+
+| Item | Fields | Secret Ref Pattern |
+|------|--------|-------------------|
+| GitHub | token, username | `op://prtl/GitHub/token` |
+| Brave | api-key | `op://prtl/Brave/api-key` |
+| AgentMail | api-key, displayname, prefix | `op://prtl/AgentMail/api-key` |
+| Discord-Breth | bot-token, application-id, public-key, server-id, channel-id | `op://prtl/Discord-Breth/bot-token` |
+| Discord-Lega | bot-token, application-id, public-key, oauth-url, server-id, channel-id | `op://prtl/Discord-Lega/bot-token` |
+| Convex | cloud-url, http-actions-url, deploy-key | `op://prtl/Convex/deploy-key` |
+| 1Password-SA | secret-key, service-account-token | `op://prtl/1Password-SA/service-account-token` |
+
+#### How to Fetch Secrets
+
+```bash
+# Set the token (bootstrap from 1Password-SA item or Cloudflare Worker secret)
+export OP_SERVICE_ACCOUNT_TOKEN="ops_eyJ..."
+
+# Read a secret
+op read "op://prtl/GitHub/token"
+op read "op://prtl/Brave/api-key"
+op read "op://prtl/Discord-Breth/bot-token"
+
+# List all items
+op item list --vault prtl
+```
+
+#### Bootstrap Flow (on fresh container)
+
+1. **OP_SERVICE_ACCOUNT_TOKEN** must be set as Cloudflare Worker secret (injected at container start)
+2. On startup, fetch all other secrets from 1Password
+3. Export to environment or write to temp files as needed
+
+#### Worker Secret Required
+
+Only **ONE** secret needs to be in Cloudflare Worker secrets now:
+- `OP_SERVICE_ACCOUNT_TOKEN` — the 1Password service account token
+
+All other secrets live in 1Password and can be fetched at runtime.
+
+#### Changed Display Name
+
+Also set `ui.assistant.name` to "Breth" in OpenClaw config so the webchat shows my name properly.
+
+---
+
+## 2026-03-01
+
+### Parallel Workers Deployed (arxa-2, arxa-3)
+
+Created 2 additional workers for parallelization/redundancy.
+
+#### Architecture
+
+| Worker | R2 Bucket | URL |
+|--------|-----------|-----|
+| `arsas-molt-fun` (primary) | `arsas-molt-fun` | https://arsas-molt-fun.prtl.workers.dev |
+| `arxa-2` | `arxa-2` | https://arxa-2.prtl.workers.dev |
+| `arxa-3` | `arxa-3` | https://arxa-3.prtl.workers.dev |
+
+**All 3 workers:**
+- Share same GitHub repo (`beloyal-club/arsa-molt-fun`)
+- Have their own R2 bucket for local state
+- Share the same API keys (Anthropic, OpenAI, Gemini)
+- No Discord (only primary has Discord)
+
+#### Wrangler Environments
+
+Updated `wrangler.jsonc` to use environments:
+- Default: deploys to `arsas-molt-fun` with `arsas-molt-fun` bucket
+- `--env arxa2`: deploys to `arxa-2` with `arxa-2` bucket
+- `--env arxa3`: deploys to `arxa-3` with `arxa-3` bucket
+
+#### GitHub Actions Deploy
+
+Updated `.github/workflows/deploy.yml`:
+- Deploys all 3 workers on push to main
+- Manual dispatch can target specific environment (all/primary/arxa2/arxa3)
+
+#### Secrets Set on Each Worker
+
+| Secret | Primary | arxa-2 | arxa-3 |
+|--------|---------|--------|--------|
+| ANTHROPIC_API_KEY | ✓ | ✓ | ✓ |
+| OPENAI_API_KEY | ✓ | ✓ | ✓ |
+| GEMINI_API_KEY | ✓ | ✓ | ✓ |
+| CLOUDFLARE_API_TOKEN | ✓ | ✓ | ✓ |
+| CF_ACCOUNT_ID | ✓ | ✓ | ✓ |
+| CF_ACCESS_AUD | ✓ | ✓ | ✓ |
+| CF_ACCESS_TEAM_DOMAIN | ✓ | ✓ | ✓ |
+| R2_ACCESS_KEY_ID | ✓ | ✓ | ✓ |
+| R2_SECRET_ACCESS_KEY | ✓ | ✓ | ✓ |
+| GITHUB_PERSONAL_ACCESS_TOKEN | ✓ | ✓ | ✓ |
+| MOLTBOT_GATEWAY_TOKEN | ✓ | ✓ | ✓ |
+| DISCORD_BOT_TOKEN | ✓ | - | - |
+
+#### Cloudflare Secrets Added to 1Password
+
+Item: `Cloudflare-Workers` in `prtl` vault:
+- `account-api-token` (CF_ACCOUNT_API_TOKEN)
+- `aud-token` (CF_ACCESS_AUD)
+- `jwk-url` (CF_JWK_URL)
+- `access-team-domain` (CF_ACCESS_TEAM_DOMAIN)
+- `account-id` (CF_ACCOUNT_ID)
