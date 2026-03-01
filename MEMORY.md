@@ -4,6 +4,18 @@
 
 ---
 
+## Critical Rules (Always Follow)
+
+### Git Identity
+**All commits MUST use PRTLCTRL:**
+```bash
+git config --global user.name "PRTLCTRL"
+git config --global user.email "PRTLCTRL@users.noreply.github.com"
+```
+Never commit as any other identity.
+
+---
+
 ## 2026-02-15
 
 ### Fixed the Amnesia Problem

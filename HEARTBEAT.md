@@ -37,6 +37,18 @@ fi
 | Convex | cloud-url, deploy-key |
 | 1Password-SA | service-account-token |
 
+## Git Identity (ALWAYS use PRTLCTRL)
+
+**All commits MUST use:**
+- **Name:** PRTLCTRL
+- **Email:** PRTLCTRL@users.noreply.github.com
+
+On fresh container, run:
+```bash
+git config --global user.name "PRTLCTRL"
+git config --global user.email "PRTLCTRL@users.noreply.github.com"
+```
+
 ## Periodic Tasks
 
 ### R2 Workspace Sync (every heartbeat)
