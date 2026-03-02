@@ -154,8 +154,8 @@ if [ -n "$GITHUB_PERSONAL_ACCESS_TOKEN" ] && [ ! -d "$REPO_DIR/.git" ]; then
     git clone "https://${GITHUB_PERSONAL_ACCESS_TOKEN}@github.com/beloyal-club/arsa-molt-fun.git" "$REPO_DIR" 2>/dev/null || true
     if [ -d "$REPO_DIR/.git" ]; then
         cd "$REPO_DIR"
-        git config user.email "breth@openclaw.ai"
-        git config user.name "Breth"
+        git config user.email "PRTLCTRL@users.noreply.github.com"
+        git config user.name "PRTLCTRL"
         echo "Repo cloned successfully"
     fi
 fi
