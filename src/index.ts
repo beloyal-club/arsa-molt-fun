@@ -669,7 +669,7 @@ app.all('*', async (c) => {
 
 /**
  * Scheduled handler for cron triggers.
- * Syncs moltbot config/state from container to R2 for persistence.
+ * Ensures the gateway is running (keeps container warm) and syncs state to R2.
  */
 async function scheduled(
   _event: ScheduledEvent,
@@ -679,9 +679,13 @@ async function scheduled(
   const options = buildSandboxOptions(env);
   const sandbox = getSandbox(env.Sandbox, 'moltbot', options);
 
-  const gatewayProcess = await findExistingMoltbotProcess(sandbox);
-  if (!gatewayProcess) {
-    console.log('[cron] Gateway not running yet, skipping sync');
+  // Start the gateway if not running (keeps container warm)
+  console.log('[cron] Ensuring gateway is running...');
+  try {
+    await ensureMoltbotGateway(sandbox, env);
+    console.log('[cron] Gateway is running');
+  } catch (err) {
+    console.error('[cron] Failed to start gateway:', err);
     return;
   }
 
