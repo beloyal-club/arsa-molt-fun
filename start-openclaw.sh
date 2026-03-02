@@ -161,6 +161,38 @@ if [ -n "$GITHUB_PERSONAL_ACCESS_TOKEN" ] && [ ! -d "$REPO_DIR/.git" ]; then
 fi
 
 # ============================================================
+# FETCH SECRETS FROM 1PASSWORD (if available)
+# ============================================================
+if [ -n "$OP_SERVICE_ACCOUNT_TOKEN" ] && command -v op &> /dev/null; then
+    echo "1Password service account token found, fetching secrets..."
+    
+    # Only fetch if not already set
+    if [ -z "$ANTHROPIC_OAUTH_TOKEN" ]; then
+        ANTHROPIC_OAUTH_TOKEN=$(op read "op://prtl/Anthropic/oauth-token" 2>/dev/null || true)
+        [ -n "$ANTHROPIC_OAUTH_TOKEN" ] && export ANTHROPIC_OAUTH_TOKEN && echo "  - ANTHROPIC_OAUTH_TOKEN fetched"
+    fi
+    
+    if [ -z "$GITHUB_PERSONAL_ACCESS_TOKEN" ]; then
+        GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://prtl/GitHub/token" 2>/dev/null || true)
+        [ -n "$GITHUB_PERSONAL_ACCESS_TOKEN" ] && export GITHUB_PERSONAL_ACCESS_TOKEN && echo "  - GITHUB_PERSONAL_ACCESS_TOKEN fetched"
+    fi
+    
+    if [ -z "$BRAVE_API_KEY" ]; then
+        BRAVE_API_KEY=$(op read "op://prtl/Brave/api-key" 2>/dev/null || true)
+        [ -n "$BRAVE_API_KEY" ] && export BRAVE_API_KEY && echo "  - BRAVE_API_KEY fetched"
+    fi
+    
+    if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+        CLOUDFLARE_API_TOKEN=$(op read "op://prtl/Cloudflare-Workers/account-api-token" 2>/dev/null || true)
+        [ -n "$CLOUDFLARE_API_TOKEN" ] && export CLOUDFLARE_API_TOKEN && echo "  - CLOUDFLARE_API_TOKEN fetched"
+    fi
+    
+    echo "1Password secrets fetch complete"
+elif [ -n "$OP_SERVICE_ACCOUNT_TOKEN" ]; then
+    echo "WARNING: OP_SERVICE_ACCOUNT_TOKEN set but 'op' CLI not found"
+fi
+
+# ============================================================
 # ONBOARD (only if no config exists yet)
 # ============================================================
 if [ ! -f "$CONFIG_FILE" ]; then
