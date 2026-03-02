@@ -730,3 +730,42 @@ Item: `Cloudflare-Workers` in `prtl` vault:
 - `jwk-url` (CF_JWK_URL)
 - `access-team-domain` (CF_ACCESS_TEAM_DOMAIN)
 - `account-id` (CF_ACCOUNT_ID)
+
+## 2026-03-02
+
+### BudAlert / CannaSignal Project
+
+Started working on **BudAlert** (internally called CannaSignal) — cannabis dispensary inventory and price tracking for NYC.
+
+**Repo:** `beloyal-club/BudAlert`
+**Local clone:** `/root/BudAlert`
+**Branch:** `feature/trend-hello-world` (active dev branch)
+
+#### Architecture
+- **Convex backend:** `quick-weasel-225.convex.cloud`
+- **Webapp:** React + Vite + Tailwind + Leaflet maps
+- **Workers:** Cloudflare Workers for scraping + API
+- **Cloudflare Pages:** `cannasignal` project
+
+#### Data Sources
+- `data/ocm-retailers.json` — 580 dispensaries (from NY OCM)
+- `data/nyc-retailers-geocoded.json` — NYC dispensaries with lat/lng
+- Official source: https://cannabis.ny.gov/dispensary-location-verification (599 dispensaries as of today)
+
+#### TASK-001: Map View with Radius (COMPLETE)
+- Created `webapp/src/pages/MapPage.tsx` — standalone `/map` route
+- Created `webapp/src/components/DispensaryRadiusMap.tsx` — Leaflet map with Circle overlays
+- Features: radius selector (0.25-2 miles), color-coded density, click for nearby competitors
+- Commit: `95fabc1` on `feature/trend-hello-world`
+
+#### Pending
+- **TASK-002:** Sync/refresh OCM dispensary data (we're 19 behind)
+- **Deploy preview:** Need Cloudflare Pages token or GitHub Actions workflow for branch deploys
+
+#### Dev Workflow (per AGENTS.md)
+1. Create task spec in `/docs/tasks/TASK-XXX.md`
+2. Spawn sub-agent to implement on feature branch
+3. Review PR when complete
+4. Merge to main
+
+Breth orchestrates but does NOT write feature code directly — sub-agents do implementation.
