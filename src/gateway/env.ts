@@ -20,9 +20,15 @@ export function buildEnvVars(env: MoltbotEnv): Record<string, string> {
     envVars.CF_AI_GATEWAY_GATEWAY_ID = env.CF_AI_GATEWAY_GATEWAY_ID;
   }
 
-  // Direct provider keys
-  if (env.ANTHROPIC_API_KEY) envVars.ANTHROPIC_API_KEY = env.ANTHROPIC_API_KEY;
-  if (env.ANTHROPIC_OAUTH_TOKEN) envVars.ANTHROPIC_OAUTH_TOKEN = env.ANTHROPIC_OAUTH_TOKEN;
+  // Direct provider keys - prefer OAuth token over API key
+  // When ANTHROPIC_OAUTH_TOKEN is set, skip ANTHROPIC_API_KEY to avoid
+  // OpenClaw checking the env var first and failing (OAuth format != API key)
+  if (env.ANTHROPIC_OAUTH_TOKEN) {
+    envVars.ANTHROPIC_OAUTH_TOKEN = env.ANTHROPIC_OAUTH_TOKEN;
+    // Don't pass ANTHROPIC_API_KEY when using OAuth
+  } else if (env.ANTHROPIC_API_KEY) {
+    envVars.ANTHROPIC_API_KEY = env.ANTHROPIC_API_KEY;
+  }
   if (env.OPENAI_API_KEY) envVars.OPENAI_API_KEY = env.OPENAI_API_KEY;
 
   // Legacy AI Gateway support: AI_GATEWAY_BASE_URL + AI_GATEWAY_API_KEY
