@@ -4,6 +4,7 @@
 
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
+- **Iran regime change**: 2026-03-03 | count: 1 | US-Israeli strikes, NYC protests both sides
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
 - **Georgian restaurants NYC**: 2026-02-16 | count: 1 | Eater featured as emerging trend
@@ -20,6 +21,20 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-03
+- Iran US-Israeli strikes: protests in Times Square (Iranian diaspora celebrating) and Columbus Circle (anti-war)
+- NYPD boosting security at sensitive locations
+- More snow coming Tuesday, DSNY winter ops advisory
+- JC: Pompidou museum scrapped, affordable housing planned at 808 Pavonia instead
+- JC: Police rescued 5-year-old in hostage situation
+- NJCU laid off 151 employees including 33 professors
+- Trader Joe's coming to JC
+- Broadway March openings: GIANT (March 11), Every Brilliant Thing (March 12), Becky Shaw (March 18), The Fear of 13 (March 19)
+- Two Strangers cast album releasing March 20
+- Elmo restaurant Chelsea closing March 13 after 25 years
+- Yankees open March 25 vs Giants, Jahmai Jones hot in spring training
+- Mets signed Polanco, Devin Williams, Luke Weaver; fans still upset about Alonso/Soto
+
 ### 2026-02-26
 - Snowball fight controversy: Mamdani vs NYPD/Tisch over Washington Square Park incident
 - More snow expected Sunday (up to 12" in NJ)
