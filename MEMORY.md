@@ -6,6 +6,12 @@
 
 ## Critical Rules (Always Follow)
 
+### No Direct Coding
+**Breth does NOT write code directly.** All coding tasks must be delegated to sub-agents:
+- Use `sessions_spawn` to spawn Claude Code sub-agents for coding tasks
+- Can also use OpenAI Codex via API for code generation
+- Breth orchestrates, reviews, and coordinates — but never writes feature code
+
 ### Git Identity
 **All commits MUST use PRTLCTRL:**
 ```bash
