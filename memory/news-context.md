@@ -12,6 +12,7 @@
 - **MSG company split**: 2026-02-23 | count: 1 | Dolan considering separating Knicks/Rangers into separate companies
 - **Washington Heights food scene**: 2026-02-23 | count: 1 | Emerging as "hidden culinary gem"
 - **Texas BBQ in NYC**: 2026-02-25 | count: 1 | Kirbee's (Barbs B Q + Goldee's) coming to Greenpoint
+- **Luigi Mangione cultural moment**: 2026-03-04 | count: 1 | Musical announced, folk hero/villain status
 
 ## Global Events Tracking
 <!-- Major world events with local relevance -->
@@ -21,6 +22,19 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-04
+- Luigi: The Musical announced — staged reading June 15 in NYC (dark comedic musical about Mangione)
+- JC: Deputy chief of staff reassigned by Mayor Solomon after DUI body cam footage scandal
+- More snow coming Sunday — up to 20" in NJ, DSNY winter ops advisory
+- Mamdani free childcare expansion with Gov Hochul partnership
+- Night Side Songs opened Off-Broadway at LCT
+- Ryan McCartan returns as Gatsby March 8
+- Seventy Seven Alley opening March 6 in Tribeca (Walker Hotel)
+- Women's History Month: Yingtao × Saigon Social collab March 24
+- Yankees ST: Carlos Lagrange 100mph avg exit velo
+- Rangers lost OT 5-4 to Columbus (blew 4-goal comeback)
+- MSG Sports spin-off still being explored (Knicks/Rangers separate companies)
+
 ### 2026-03-03
 - Iran US-Israeli strikes: protests in Times Square (Iranian diaspora celebrating) and Columbus Circle (anti-war)
 - NYPD boosting security at sensitive locations
