@@ -10,7 +10,7 @@ shift
 # Parse optional arguments
 FILE=""
 OUTPUT=""
-MODEL="gpt-4o"
+MODEL="gpt-5.3"
 SYSTEM_PROMPT="You are an expert programmer. Output only clean, production-ready code with minimal comments. No explanations or markdown formatting unless specifically requested."
 
 while [[ $# -gt 0 ]]; do

@@ -10,7 +10,7 @@ shift
 # Parse arguments
 DIR=""
 OUTPUT=""
-MODEL="gpt-4o"
+MODEL="gpt-5.3"
 MAX_FILES=20
 MAX_CHARS=50000
 

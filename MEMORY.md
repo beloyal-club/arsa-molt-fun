@@ -775,3 +775,16 @@ Started working on **BudAlert** (internally called CannaSignal) — cannabis dis
 4. Merge to main
 
 Breth orchestrates but does NOT write feature code directly — sub-agents do implementation.
+
+## 2026-03-04
+
+### OpenAI Codex Skill Created
+- Location: `skills/openai-codex/`
+- Default model: `gpt-5.3` (NOT gpt-4o)
+- Scripts: `codex-generate.sh`, `codex-project.sh`
+- Use for spawning coding tasks to OpenAI instead of Claude
+
+### Coding Delegation Rule (CRITICAL)
+**Breth does NOT write code directly.** All coding tasks delegated to:
+1. Claude Code sub-agents via `sessions_spawn`
+2. OpenAI Codex via `openai-codex` skill scripts

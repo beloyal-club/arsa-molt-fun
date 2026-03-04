@@ -88,8 +88,8 @@ Use the helper script with directory context:
 
 | Model | Best For |
 |-------|----------|
-| `gpt-4o` | Complex multi-file tasks, architecture |
-| `gpt-4o-mini` | Quick edits, simple functions |
+| `gpt-5.3` | Default - complex multi-file tasks, architecture |
+| `gpt-4o` | Fallback for simpler tasks |
 | `o1` | Algorithmic problems, optimization |
 | `o3-mini` | Fast reasoning tasks |
 
