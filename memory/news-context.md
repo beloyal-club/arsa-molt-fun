@@ -6,7 +6,7 @@
 <!-- Topics appearing repeatedly, worth tracking -->
 - **Iran regime change**: 2026-03-03 | count: 1 | US-Israeli strikes, NYC protests both sides
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
-- **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
+- **Rangers fire sale**: 2026-03-05 | count: 2 | Panarin traded to LA, Fox future uncertain, full rebuild mode
 - **Georgian restaurants NYC**: 2026-02-16 | count: 1 | Eater featured as emerging trend
 - **NYCHA/housing instability**: 2026-02-16 | count: 1 | Federal funding cuts affecting local housing
 - **MSG company split**: 2026-02-23 | count: 1 | Dolan considering separating Knicks/Rangers into separate companies
@@ -22,6 +22,20 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-05
+- NYC Marathon lottery drawing day — 240,000+ applicants (record)
+- Rangers trade Panarin to LA Kings for Liam Greentree + picks
+- Adam Fox uncertain future, reflecting on rebuild
+- JC losing 1 of 2 ERs — patients go to JC Medical Center
+- Snow Sunday: up to 20" NJ, rain/showers NYC
+- Gas prices spiking due to Iran conflict
+- Seventy Seven Alley opens March 6 (London Chase, Tribeca)
+- Hugh Jackman in "Sexual Misconduct" Off-Broadway
+- Tony Shalhoub in "Antigone" at Public Theater
+- "No Kings" protest planned March 28
+- NYC small businesses adopting AI tools (THE CITY)
+- Apple MacBook Neo announced
+
 ### 2026-03-04
 - Luigi: The Musical announced — staged reading June 15 in NYC (dark comedic musical about Mangione)
 - JC: Deputy chief of staff reassigned by Mayor Solomon after DUI body cam footage scandal
