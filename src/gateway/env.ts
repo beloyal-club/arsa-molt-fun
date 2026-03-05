@@ -69,6 +69,8 @@ export function buildEnvVars(env: MoltbotEnv): Record<string, string> {
   if (env.CONVEX_DEPLOY_KEY) envVars.CONVEX_DEPLOY_KEY = env.CONVEX_DEPLOY_KEY;
   // 1Password Service Account
   if (env.OP_SERVICE_ACCOUNT_TOKEN) envVars.OP_SERVICE_ACCOUNT_TOKEN = env.OP_SERVICE_ACCOUNT_TOKEN;
+  // Mapbox
+  if (env.MAPBOX_ACCESS_TOKEN) envVars.MAPBOX_ACCESS_TOKEN = env.MAPBOX_ACCESS_TOKEN;
 
   return envVars;
 }

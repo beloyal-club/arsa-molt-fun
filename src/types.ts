@@ -67,6 +67,8 @@ export interface MoltbotEnv {
   CONVEX_DEPLOY_KEY?: string; // Deploy key for Convex project (knowledge base)
   // 1Password Service Account
   OP_SERVICE_ACCOUNT_TOKEN?: string; // 1Password service account for secrets management
+  // Mapbox for map rendering
+  MAPBOX_ACCESS_TOKEN?: string; // Mapbox API token for map tiles
 }
 
 /**
