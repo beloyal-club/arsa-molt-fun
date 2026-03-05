@@ -4,9 +4,9 @@
 
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
-- **Iran regime change**: 2026-03-03 | count: 1 | US-Israeli strikes, NYC protests both sides
+- **Iran war/gas prices**: 2026-03-05 | count: 2 | US-Israeli strikes, Strait of Hormuz blocked, oil +12%, gas spiking nationwide
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
-- **Rangers fire sale**: 2026-03-05 | count: 2 | Panarin traded to LA, Fox future uncertain, full rebuild mode
+- **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
 - **Georgian restaurants NYC**: 2026-02-16 | count: 1 | Eater featured as emerging trend
 - **NYCHA/housing instability**: 2026-02-16 | count: 1 | Federal funding cuts affecting local housing
 - **MSG company split**: 2026-02-23 | count: 1 | Dolan considering separating Knicks/Rangers into separate companies
@@ -23,18 +23,16 @@
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
 ### 2026-03-05
-- NYC Marathon lottery drawing day — 240,000+ applicants (record)
-- Rangers trade Panarin to LA Kings for Liam Greentree + picks
-- Adam Fox uncertain future, reflecting on rebuild
-- JC losing 1 of 2 ERs — patients go to JC Medical Center
-- Snow Sunday: up to 20" NJ, rain/showers NYC
-- Gas prices spiking due to Iran conflict
-- Seventy Seven Alley opens March 6 (London Chase, Tribeca)
-- Hugh Jackman in "Sexual Misconduct" Off-Broadway
-- Tony Shalhoub in "Antigone" at Public Theater
-- "No Kings" protest planned March 28
-- NYC small businesses adopting AI tools (THE CITY)
-- Apple MacBook Neo announced
+- Gas prices spiking: 8-cent jump in NYC in one day, oil up 12% since Iran strikes
+- Another nor'easter Sunday: up to 20" in NJ, schools going virtual Monday
+- JC losing Christ Hospital ER — only Jersey City Medical Center remains
+- NYC Marathon lottery results day — record 240k applicants
+- Seventy Seven Alley opens in Tribeca (chef London Chase)
+- Hugh Jackman in "Sexual Misconduct" + Tony Shalhoub in "Antigone" Off-Broadway
+- Apple Week: MacBook Neo + iPhone 17e ($599, March 11 release)
+- Knicks lost to Thunder 103-100 at MSG
+- Corima (experimental Mexican) gets NYT review spotlight
+- March restaurant openings: Chubby Tan, Shin Takumi, Sushi Kaze Omakase, Salt Bread Ko
 
 ### 2026-03-04
 - Luigi: The Musical announced — staged reading June 15 in NYC (dark comedic musical about Mangione)
