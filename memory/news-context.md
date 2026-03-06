@@ -23,14 +23,15 @@
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
 ### 2026-03-06
-- Nor'easter Sunday: up to 20" in NJ, JC schools virtual Monday, coastal flooding expected
-- Gas prices $3.20/gal national avg, Trump "if they rise, they rise", oil at $75/barrel
-- Trader Joe's officially confirmed for Jersey City (location/timing TBD)
-- Two teens rescued from stuck elevator at JC Ninth Street light rail (2 hours trapped)
-- This weekend: Holi celebration, Grey Arias NYC debut, roller skating lessons
-- Titaníque Broadway previews start March 26 (16-week run)
-- Yankees Opening Day March 25 @ Giants, Mets March 26 vs Pirates
-- Ryan McCartan returns as Gatsby March 8
+- Another nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday
+- Gas prices up 20+ cents this week (Iran conflict, Strait of Hormuz disruption)
+- Two teens rescued from stuck elevator at JC Ninth Street light rail (2hr ordeal)
+- Trader Joe's officially confirmed for Jersey City (no date/location yet)
+- Mamdani wants $25M for 500 bike lockers across NYC
+- This weekend: Holi celebration, Grey Arias NYC debut, 4WRD Skate roller lessons
+- Seventy Seven Alley opens today (Walker Hotel Tribeca, chef London Chase)
+- WBC 2026 starting, Yankees players heading to tournament
+- MLB Opening Day: March 25 (Yankees @ Giants), Mets home opener March 26
 
 ### 2026-03-05
 - Gas prices spiking: 8-cent jump in NYC in one day, oil up 12% since Iran strikes
