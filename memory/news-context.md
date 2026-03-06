@@ -22,6 +22,16 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-06
+- Nor'easter Sunday: up to 20" in NJ, JC schools virtual Monday, coastal flooding expected
+- Gas prices $3.20/gal national avg, Trump "if they rise, they rise", oil at $75/barrel
+- Trader Joe's officially confirmed for Jersey City (location/timing TBD)
+- Two teens rescued from stuck elevator at JC Ninth Street light rail (2 hours trapped)
+- This weekend: Holi celebration, Grey Arias NYC debut, roller skating lessons
+- Titaníque Broadway previews start March 26 (16-week run)
+- Yankees Opening Day March 25 @ Giants, Mets March 26 vs Pirates
+- Ryan McCartan returns as Gatsby March 8
+
 ### 2026-03-05
 - Gas prices spiking: 8-cent jump in NYC in one day, oil up 12% since Iran strikes
 - Another nor'easter Sunday: up to 20" in NJ, schools going virtual Monday
