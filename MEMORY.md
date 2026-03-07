@@ -731,6 +731,50 @@ Item: `Cloudflare-Workers` in `prtl` vault:
 - `access-team-domain` (CF_ACCESS_TEAM_DOMAIN)
 - `account-id` (CF_ACCOUNT_ID)
 
+## 2026-03-07
+
+### BudAlert: convex/server Browser Stub Fix
+
+**Problem:** Webapp importing `convex/_generated/api.js` which imports `anyApi` from `convex/server` — a server-side package that doesn't work in browsers.
+
+**Root cause:** Vite wasn't properly handling the `convex/server` import for browser builds.
+
+**Failed attempts:**
+1. `external: ['convex/server']` — Browser still tried to load module at runtime
+2. Stub with `anyApi = {}` — `api.retailers` was undefined
+3. Proxy returning strings — Convex validates refs aren't plain strings
+
+**Working solution:** Copy exact Convex implementation pattern using `Symbol.for("functionName")`:
+```typescript
+const functionName = Symbol.for("functionName");
+
+function createApi(pathParts: string[] = []): any {
+  return new Proxy({}, {
+    get(_, prop) {
+      if (typeof prop === "string") return createApi([...pathParts, prop]);
+      if (prop === functionName) {
+        const path = pathParts.slice(0, -1).join("/");
+        const exportName = pathParts[pathParts.length - 1];
+        return exportName === "default" ? path : path + ":" + exportName;
+      }
+      if (prop === Symbol.toStringTag) return "FunctionReference";
+      return undefined;
+    }
+  });
+}
+export const anyApi = createApi();
+```
+
+**Key insight:** Convex function references are Proxy objects that respond to `Symbol.for("functionName")` by returning the path string. The client library checks for this specific symbol.
+
+**Lesson:** When stubbing internal library code, read the actual source (`node_modules/convex/dist/cjs/server/api.js`) to match exact runtime behavior.
+
+**Files:**
+- `webapp/src/convex-server-stub.ts` — The stub
+- `webapp/vite.config.ts` — Alias `'convex/server'` to the stub
+
+---
+
 ## 2026-03-02
 
 ### BudAlert / CannaSignal Project
