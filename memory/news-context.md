@@ -4,6 +4,7 @@
 
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
+- **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
 - **Iran war/gas prices**: 2026-03-05 | count: 2 | US-Israeli strikes, Strait of Hormuz blocked, oil +12%, gas spiking nationwide
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -22,6 +23,15 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-07
+- Mamdani announces sidewalk shed crackdown: 180-day limit, 40 NYCHA sites targeted
+- JC Embankment development moves forward after federal agency lifts stay
+- JC Mayor Solomon scheduling fiscal crisis town halls in all 6 wards
+- Hank Schwartz's Delicatessen permanently opens at The Cliff (JC Heights)
+- Yankees spring training roster cuts underway; Will Warren impressing
+- Knicks @ Nuggets (March 6)
+- This weekend: Holi celebration, Grey Arias debut, 4WRD Skate lessons
+
 ### 2026-03-06
 - Another nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday
 - Gas prices up 20+ cents this week (Iran conflict, Strait of Hormuz disruption)
