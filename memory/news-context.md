@@ -24,12 +24,19 @@
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
 ### 2026-03-07
-- Mamdani announces sidewalk shed crackdown: 180-day limit, 40 NYCHA sites targeted
+### 2026-03-07
+- Mamdani announces sidewalk shed crackdown: 180-day limit, 40 NYCHA sites targeted, stiffer fines
+- Nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday (again)
+- Gas prices: $3.22/gal in NY, up 22¢ in a week; Strait of Hormuz down to 1-2 tankers/day
 - JC Embankment development moves forward after federal agency lifts stay
 - JC Mayor Solomon scheduling fiscal crisis town halls in all 6 wards
+- Salon du Chocolat NYC this weekend (Gail Simmons, chocolate gowns)
+- Stuart Cinema Greenpoint closing tonight after 8 years
 - Hank Schwartz's Delicatessen permanently opens at The Cliff (JC Heights)
+- Mets: Alonso gone, Polanco/Baty at 1B; Lindor hitting progression started
 - Yankees spring training roster cuts underway; Will Warren impressing
-- Knicks @ Nuggets (March 6)
+- Knicks lost to Nuggets (Friday road game)
+- WBC 2026 underway
 - This weekend: Holi celebration, Grey Arias debut, 4WRD Skate lessons
 
 ### 2026-03-06
