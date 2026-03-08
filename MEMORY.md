@@ -731,6 +731,58 @@ Item: `Cloudflare-Workers` in `prtl` vault:
 - `access-team-domain` (CF_ACCESS_TEAM_DOMAIN)
 - `account-id` (CF_ACCOUNT_ID)
 
+## 2026-03-08
+
+### BudAlert Development Workflow (FOLLOW THIS)
+
+**Branch strategy:**
+1. **Create feature branch** for new work (e.g., `fix/mobile-touch-targets`)
+2. **Merge to `staging`** to deploy to `staging.cannasignal.pages.dev`
+3. **Wait for Arxa's feedback** on staging
+4. **Merge to `main`** only when approved → deploys to production
+
+**Never push directly to `main` or `staging`** — always go through feature branches.
+
+**Deploy URLs:**
+- Staging: `staging.cannasignal.pages.dev`
+- Production: `cannasignal.pages.dev`
+
+### Code Changes via External Coding Agents (MANDATORY - NO EXCEPTIONS)
+
+**🚨 I DO NOT WRITE CODE. EVER. 🚨**
+
+For ANY code changes, I MUST use external coding CLIs:
+
+| CLI | Command | Use for |
+|-----|---------|---------|
+| Claude Code | `claude` | Complex features, refactoring |
+| Codex | `codex` | Quick fixes, simple changes |
+
+**Workflow:**
+1. **Create feature branch** first: `git checkout -b feature/xyz`
+2. **Write task prompt** with clear requirements
+3. **Invoke CLI**: `claude "implement X in path/to/file"` or `codex "fix Y"`
+4. **CLI does the coding** — not me
+5. **I review** the diff: `git diff`
+6. **Push + merge to staging** for testing
+7. **Merge to main** when Arxa approves
+
+**What I CAN do:**
+- Git commands (checkout, merge, push)
+- Review diffs
+- Run tests
+- Write task prompts
+- Read files for context
+
+**What I CANNOT do:**
+- Use `Edit` tool on code files
+- Use `Write` tool to create code
+- Modify any `.ts`, `.tsx`, `.js`, `.jsx`, `.css` files directly
+
+This is enforced by Arxa. No exceptions.
+
+---
+
 ## 2026-03-07
 
 ### BudAlert: convex/server Browser Stub Fix
