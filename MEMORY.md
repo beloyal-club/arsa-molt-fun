@@ -826,6 +826,31 @@ This is enforced by Arxa. No exceptions.
 
 ---
 
+## 2026-03-09
+
+### arxa-1 Setup (Personal Assistant Instance)
+
+**Worker:** `arxa-1` on Cloudflare
+**URL:** https://arxa-1.prtl.workers.dev
+**Access App:** `arxa-01` (Zero Trust)
+**AUD:** `84cdd72b5e0fdca57e4c12f6737773fe57087c61507394a59105b6651709a95a`
+
+**Deployment:**
+- Added `arxa1` env to `wrangler.jsonc` and GitHub Actions workflow
+- Deploys via `wrangler deploy --env arxa1`
+- R2 bucket: `arxa-1`
+
+**Secrets configured:**
+- ANTHROPIC_OAUTH_TOKEN ✅
+- CF_ACCESS_AUD ✅  
+- CF_ACCESS_TEAM_DOMAIN ✅
+- MOLTBOT_GATEWAY_TOKEN ✅ (set: f7f82e9bf44cfcbcc49549f426157eeac916200d174a965e73053265e343c42d)
+- OP_SERVICE_ACCOUNT_TOKEN ✅ (needs redeploy to pass through)
+
+**Note:** Gateway token in 1Password under "arxa-1 Gateway Token" in prtl vault.
+
+---
+
 ## 2026-03-07
 
 ### BudAlert: convex/server Browser Stub Fix
