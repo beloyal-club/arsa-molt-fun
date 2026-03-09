@@ -731,6 +731,49 @@ Item: `Cloudflare-Workers` in `prtl` vault:
 - `access-team-domain` (CF_ACCESS_TEAM_DOMAIN)
 - `account-id` (CF_ACCOUNT_ID)
 
+## 2026-03-08 (Evening)
+
+### BudAlert Scraping Setup — IN PROGRESS
+
+**Goal:** Collect inventory data from 3 stores, implement velocity tracking.
+
+**3 Target Stores (configured in Convex `next-sardine-289`):**
+
+| Store | Platform | URL | Status |
+|-------|----------|-----|--------|
+| Housing Works Broadway | Tymber | `hwcannabis.co/menu/broadway/` | ✅ Working (37 products, 100% inventory) |
+| CONBUD LES | Dutchie | `conbud.com/stores/conbud-les/products` | ⏸️ Needs CDP_SECRET |
+| Village HBK (Hoboken NJ) | Dutchie | `thevillagebrands.com/stores/village-hbk` | ⏸️ Needs CDP_SECRET |
+
+**What's done:**
+- Retailers created in Convex with correct URLs/platforms
+- Tymber scraper tested — works perfectly via simple HTTP fetch
+- `setMenuSources` mutation deployed to Convex
+- Fixed TypeScript errors in dispensarySync.ts, inventoryEvents.ts
+
+**What's blocking Dutchie scraping:**
+- `CDP_SECRET` not set in container
+- This is the auth token for `cannasignal-browser.prtl.workers.dev`
+- To fix: Generate secret (`openssl rand -hex 32`), set on both browser worker AND arsa-molt-fun
+
+**Velocity tracking architecture:** See `docs/architecture/sku-velocity-tracking.md`
+- Track OUT_OF_STOCK ↔ BACK_IN_STOCK events
+- Calculate velocity scores (fast/medium/slow/stale)
+- `productVelocity` table not yet added to schema
+
+**Convex deployment note:**
+- Dev: `next-sardine-289` (has the 3 retailers, new code)
+- Prod: `quick-weasel-225` (old data, not updated)
+- CONVEX_DEPLOY_KEY points to dev
+
+**Next steps when resuming:**
+1. Add CDP_SECRET to enable browser scraping
+2. Set up 4-hour cron job for scraping
+3. Add productVelocity table
+4. Start collecting snapshots
+
+---
+
 ## 2026-03-08
 
 ### BudAlert Development Workflow (FOLLOW THIS)
