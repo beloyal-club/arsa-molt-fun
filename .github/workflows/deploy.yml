@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy (all, primary, arxa2, arxa3)'
+        description: 'Environment to deploy (all, primary, arxa1, arxa2, arxa3)'
         required: false
         default: 'all'
 
@@ -79,6 +79,40 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  deploy-arxa1:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy arxa-1
+    if: |
+      github.ref == 'refs/heads/main' && 
+      github.event_name != 'pull_request' &&
+      (github.event.inputs.environment == 'all' || github.event.inputs.environment == 'arxa1' || github.event.inputs.environment == '')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy to Cloudflare (arxa1 env)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --env arxa1
 
   deploy-arxa2:
     needs: build

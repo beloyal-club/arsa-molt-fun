@@ -1,0 +1,99 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arsas-molt-fun",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-06",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  // Static assets for admin UI (built by vite)
+  "assets": {
+    "directory": "./dist/client",
+    "not_found_handling": "single-page-application",
+    "html_handling": "auto-trailing-slash",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  // Allow importing HTML files as text modules and PNG files as binary
+  "rules": [
+    {
+      "type": "Text",
+      "globs": ["**/*.html"],
+      "fallthrough": false
+    },
+    {
+      "type": "Data",
+      "globs": ["**/*.png"],
+      "fallthrough": false
+    }
+  ],
+  // Build command for vite
+  "build": {
+    "command": "npm run build"
+  },
+  // Container configuration for the OpenClaw sandbox
+  "containers": [
+    {
+      "class_name": "Sandbox",
+      "image": "./Dockerfile",
+      "instance_type": "standard-3",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "Sandbox",
+        "name": "Sandbox"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "new_sqlite_classes": ["Sandbox"],
+      "tag": "v1"
+    }
+  ],
+  // R2 bucket for persistent storage (primary worker)
+  "r2_buckets": [
+    {
+      "binding": "MOLTBOT_BUCKET",
+      "bucket_name": "arsas-molt-fun"
+    }
+  ],
+  // Cron trigger to sync data to R2 every 5 minutes
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  },
+  // Browser Rendering binding for CDP shim
+  "browser": {
+    "binding": "BROWSER"
+  },
+  // Cloudflare Secrets Store binding
+  "secrets_store_secrets": [{ "binding": "TEST_SECRET", "store_id": "b1b0138be7364e39944d97730206e9b2", "secret_name": "TEST_SECRET" }],
+  
+  // ========== PARALLEL WORKER ENVIRONMENTS ==========
+  // Deploy with: wrangler deploy --env arxa2
+  // Each environment has its own worker name and R2 bucket
+  "env": {
+    "arxa2": {
+      "name": "arxa-2",
+      "r2_buckets": [
+        {
+          "binding": "MOLTBOT_BUCKET",
+          "bucket_name": "arxa-2"
+        }
+      ]
+    },
+    "arxa3": {
+      "name": "arxa-3",
+      "r2_buckets": [
+        {
+          "binding": "MOLTBOT_BUCKET",
+          "bucket_name": "arxa-3"
+        }
+      ]
+    }
+  }
+}
