@@ -5,7 +5,7 @@
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-05 | count: 2 | US-Israeli strikes, Strait of Hormuz blocked, oil +12%, gas spiking nationwide
+- **Iran war/gas prices**: 2026-03-09 | count: 5 | Day 10, Mojtaba Khamenei named leader, oil $120/barrel, gas +17%, Strait of Hormuz closed
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
 - **Georgian restaurants NYC**: 2026-02-16 | count: 1 | Eater featured as emerging trend
@@ -23,6 +23,20 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-09
+- Mojtaba Khamenei named Iran's new supreme leader (son of slain leader)
+- Iran launches new attacks on Israel and Gulf states; at least 1 killed in Israel
+- FBI raids two Bucks County, PA homes linked to Gracie Mansion protest violence
+- Gas prices up 17% since Iran conflict started; national avg $3.41/gal; oil near $120/barrel
+- Third nor'easter: 20+ inches NJ, 8-12" NYC; JC schools virtual today
+- Knicks lost to Lakers 110-97 (Dončić 35 pts)
+- WBC: USA vs Mexico tonight 8 PM; USA is 2-0 after beating Great Britain 9-1
+- Mets reliever Robert Stock needs thoracic outlet surgery (out most of 2026)
+- Yankees farm system ranked 26th (7th consecutive year outside top 10)
+- A Chorus Line announces closing
+- Gov. Mikie Sherrill presents first budget proposal Tuesday
+- Japan Nikkei plunged 7% on oil spike
+
 ### 2026-03-08
 - Gracie Mansion protest violence: suspicious devices ignited, 6 arrested (Jake Lang organized anti-Islam rally)
 - Washington Square Park vigil for Khamenei turned violent (Friday)
