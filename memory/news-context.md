@@ -23,17 +23,6 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
-### 2026-03-08
-- Gracie Mansion protest violence: suspicious devices ignited, 6 arrested (Jake Lang organized anti-Islam rally)
-- Washington Square Park vigil for Khamenei turned violent (Friday)
-- Another nor'easter today: up to 20" NJ, 8-12" NYC, JC schools virtual Monday (third in 3 weeks)
-- WBC: USA beat Great Britain 9-1, now 2-0 (Schwarber HR, Henderson 4-5, Holmes 6 Ks)
-- Knicks @ Lakers today 3:30 PM on ABC (Brunson vs Doncic)
-- CanJam NYC wrapping up (headphone/audio expo)
-- Salon du Chocolat continues
-- DST started (spring forward)
-- Broadway: GIANT opens March 11, Every Brilliant Thing March 12
-
 ### 2026-03-07
 ### 2026-03-07
 - Mamdani announces sidewalk shed crackdown: 180-day limit, 40 NYCHA sites targeted, stiffer fines
