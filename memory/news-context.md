@@ -6,7 +6,7 @@
 <!-- Topics appearing repeatedly, worth tracking -->
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
 - **Iran war/gas prices**: 2026-03-09 | count: 5 | Day 10, Mojtaba Khamenei named leader, oil $120/barrel, gas +17%, Strait of Hormuz closed
-- **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
+- **Mamdani security crisis**: 2026-03-09 | count: 2 | From snowball fight (Feb 26) to FBI terrorism probe at Gracie Mansion (IED thrown)
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
 - **Georgian restaurants NYC**: 2026-02-16 | count: 1 | Eater featured as emerging trend
 - **NYCHA/housing instability**: 2026-02-16 | count: 1 | Federal funding cuts affecting local housing
