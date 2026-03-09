@@ -77,6 +77,15 @@
   // Deploy with: wrangler deploy --env arxa2
   // Each environment has its own worker name and R2 bucket
   "env": {
+    "arxa1": {
+      "name": "arxa-1",
+      "r2_buckets": [
+        {
+          "binding": "MOLTBOT_BUCKET",
+          "bucket_name": "arxa-1"
+        }
+      ]
+    },
     "arxa2": {
       "name": "arxa-2",
       "r2_buckets": [
