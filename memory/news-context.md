@@ -5,7 +5,7 @@
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-10 | count: 6 | Day 11, $3.48/gal national avg, NJ may hit $4 by St. Patricks, Schumer calls for reserve tap
+- **Iran war/gas prices**: 2026-03-13 | count: 7 | Day 12, $110/barrel oil, $3.59/gal national avg (up 70¢ since Mar 1), reserve release ineffective
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -24,6 +24,17 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-13
+- Ernie Anastos dies at 82 (pneumonia) — legendary NYC news anchor (WABC, WCBS, Fox5)
+- Iran war Day 12: Oil hits $110/barrel, gas $3.59 national avg (up 70¢ since March 1)
+- US military plane crash in Iraq; Hegseth says US will stop Iran from closing Hormuz
+- WBC: USA advances to quarterfinals (3-1) despite 8-6 loss to Italy; faces Canada Friday 8 PM
+- Death of a Salesman in previews (Nathan Lane, Laurie Metcalf, Christopher Abbott)
+- Phantom of the Opera return rumors swirling on Broadway
+- Hoboken facing $17M budget gap, possible 20% tax increase
+- JC: Animal welfare activists protest Fulop aide's reassignment to Animal Control
+- New Music Friday: Jack Harlow "Monica", James Blake "Trying Times"
+
 ### 2026-03-09
 - Mojtaba Khamenei named Iran's new supreme leader (son of slain leader)
 - Iran launches new attacks on Israel and Gulf states; at least 1 killed in Israel
