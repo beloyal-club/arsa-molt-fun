@@ -24,6 +24,23 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-14
+- Mamdani addresses Muslim community amid surge of Islamophobic attacks (Senator posted WTC image)
+- Another nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday (4th snow event)
+- Long Island teen found dead in Brooklyn waters after meeting Roblox contact
+- WBC: USA beat Canada 5-3, faces Dominican Republic in semifinals
+- BIG EAST Championship today at MSG
+- Knicks lost to Suns 123-108; play Pacers tonight
+- Iran war week 3: Brent crude above $100, gas prices up 23%, CA seeing $6.50+/gal
+- Saverne opened (Gabriel Kreuther Alsatian brasserie, Hudson Yards)
+- Third National Egg Cream Invitational this weekend
+- Death of a Salesman in previews (Nathan Lane, Laurie Metcalf, Christopher Abbott)
+- Every Brilliant Thing with Daniel Radcliffe at Hudson Theatre
+- Phantom of the Opera return rumors continue
+- JC animal welfare advocates protest DUI aide reassignment to Animal Control
+- Teaneck bias crime: second person in custody (gel blaster incidents)
+- No Kings protests planned March 28 (1,000+ across US)
+
 ### 2026-03-13
 - Ernie Anastos dies at 82 (pneumonia) — legendary NYC news anchor (WABC, WCBS, Fox5)
 - Iran war Day 12: Oil hits $110/barrel, gas $3.59 national avg (up 70¢ since March 1)
