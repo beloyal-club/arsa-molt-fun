@@ -24,6 +24,22 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-15
+- Another nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday (5th major snow event)
+- NYC reports first Mpox Clade I case (traveler from Europe, recovering, health advisory issued)
+- Man pushed onto subway tracks at Dyckman Street A station, suspect at large
+- Taxi struck 2 women outside LES deli
+- Jersey City ranked "happiest city in NJ" by WalletHub
+- WBC: USA vs Dominican Republic TODAY in Miami semifinals; Venezuela upset Japan
+- WBC championship game Tuesday March 17
+- Gas prices: $3.60/gal national avg (up 35¢ in one week, up 70¢ since March 1)
+- Oil near $103/barrel, up 40% since war started Feb 28
+- "Peak war panic" predicted in financial markets within 1-3 weeks
+- US temporarily lifted Russian oil sanctions to stabilize prices
+- Becky Shaw begins previews March 18 (drag/ball culture reimagining, Broadhurst)
+- The Lost Boys musical begins previews March 27 (Palace Theater)
+- Mets claimed Richard Lovelady off waivers
+
 ### 2026-03-14
 - Mamdani addresses Muslim community amid surge of Islamophobic attacks (Senator posted WTC image)
 - Another nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday (4th snow event)
