@@ -4,6 +4,8 @@
 
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
+- **JC healthcare crisis**: 2026-03-16 | count: 1 | Heights ER closed, only JCMC remains, Mayor Solomon outraged
+- **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
 - **Iran war/gas prices**: 2026-03-13 | count: 7 | Day 12, $110/barrel oil, $3.59/gal national avg (up 70¢ since Mar 1), reserve release ineffective
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
@@ -24,6 +26,17 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-16
+- Oscars 2026: One Battle After Another wins Best Picture (6 total wins, Paul Thomas Anderson's first Oscar)
+- Michael B. Jordan wins Best Actor (Sinners), Jessie Buckley Best Actress (Hamnet)
+- Sean Penn Best Supporting Actor, Amy Madigan Best Supporting Actress
+- JC Heights University Hospital ER closed — only JCMC remains
+- NYC Half Marathon record: 30,000+ runners
+- WBC: USA beat Dominican Republic 2-1, faces Venezuela in championship TONIGHT 8 PM
+- Gas near $3.70/gal, could hit $4 this week; Iran war Day 16
+- Severe weather moving into Northeast — damaging winds, thunderstorms possible
+- Brooklyn overnight shooting: 24-year-old man killed on Alabama Avenue
+
 ### 2026-03-15
 - Another nor'easter Sunday: up to 20" NJ, 8-12" NYC, JC schools virtual Monday (5th major snow event)
 - NYC reports first Mpox Clade I case (traveler from Europe, recovering, health advisory issued)
