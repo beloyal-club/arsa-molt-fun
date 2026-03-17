@@ -4,10 +4,11 @@
 
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
-- **JC healthcare crisis**: 2026-03-16 | count: 1 | Heights ER closed, only JCMC remains, Mayor Solomon outraged
+- **JC healthcare crisis**: 2026-03-17 | count: 2 | Heights Hospital officially closed after injunction denied, only JCMC remains
+- **WBC 2026**: 2026-03-17 | count: 3 | Championship tonight USA vs Venezuela 8 PM
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-13 | count: 7 | Day 12, $110/barrel oil, $3.59/gal national avg (up 70¢ since Mar 1), reserve release ineffective
+- **Iran war/gas prices**: 2026-03-17 | count: 8 | Day 17, Larijani killed, $106/barrel oil, $3.72/gal national avg (up 80¢ from month ago), Hormuz paralyzed
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -26,6 +27,16 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-17
+- St. Patrick's Day: 265th NYC parade on Fifth Ave, Grand Marshal Bob McCann, Mamdani & Tisch marching
+- IRAN WAR: Israel kills Ali Larijani (Iran's de facto leader) in airstrike near Tehran
+- Gas prices: $3.72/gal national avg (up 80¢ from month ago), oil $106/barrel
+- WBC Championship TONIGHT: USA vs Venezuela 8 PM at loanDepot Park Miami
+- Heights University Hospital officially closed — JC only has JCMC for ER now
+- Andy Kaplan nominated as JC infrastructure director
+- Gov. Sherrill budget praised for childcare funding
+- Broadway: Becky Shaw previews tomorrow, Fear of 13 Thursday, 20at20 returns March 23
+
 ### 2026-03-16
 - Oscars 2026: One Battle After Another wins Best Picture (6 total wins, Paul Thomas Anderson's first Oscar)
 - Michael B. Jordan wins Best Actor (Sinners), Jessie Buckley Best Actress (Hamnet)
