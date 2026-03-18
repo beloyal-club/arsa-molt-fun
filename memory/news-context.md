@@ -5,10 +5,10 @@
 ## Active Trends
 <!-- Topics appearing repeatedly, worth tracking -->
 - **JC healthcare crisis**: 2026-03-17 | count: 2 | Heights Hospital officially closed after injunction denied, only JCMC remains
-- **WBC 2026**: 2026-03-17 | count: 3 | Championship tonight USA vs Venezuela 8 PM
+- **WBC 2026**: 2026-03-18 | count: 4 | CONCLUDED — Venezuela beats USA 3-2, first title; Maikel Garcia MVP
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-17 | count: 8 | Day 17, Larijani killed, $106/barrel oil, $3.72/gal national avg (up 80¢ from month ago), Hormuz paralyzed
+- **Iran war/gas prices**: 2026-03-18 | count: 9 | Day 18, Intel Minister Khatib killed, US bunker busters on Hormuz, $3.79/gal national avg (highest since Oct 2023)
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -27,6 +27,17 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-18
+- WBC Championship: Venezuela beats USA 3-2, first-ever WBC title; Maikel Garcia MVP; Eugenio Suárez 9th-inning RBI
+- Iran War Day 18: Israel kills Intelligence Minister Esmail Khatib; US drops 5,000-lb bunker busters on Hormuz missile sites; US/Israel hit South Pars gas field; Iran launches missiles toward central Israel
+- US intel official quits over Iran war, says "Trump was duped"
+- Gas prices: $3.79/gal national avg (highest since Oct 2023); NY state $3.53, up 64¢/month
+- Midtown fire: HVAC fire at East 43rd St during St. Patrick's parade (no injuries)
+- Overnight storms: 72 mph gusts at JFK, downed trees, NJ Transit briefly suspended (Morris & Essex, North Jersey Coast)
+- NYC Cinema Week announced: March 20-26 (first ever), indie film celebration with Art House NY
+- Broadway: Becky Shaw previews started; Dog Day Afternoon in previews; Death of a Salesman opens Mar 30
+- March restaurant openings: Shin Takumi opened; Brasserie Boulud, King (British seafood pub) coming
+
 ### 2026-03-17
 - St. Patrick's Day: 265th NYC parade on Fifth Ave, Grand Marshal Bob McCann, Mamdani & Tisch marching
 - IRAN WAR: Israel kills Ali Larijani (Iran's de facto leader) in airstrike near Tehran
