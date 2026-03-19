@@ -27,6 +27,19 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-19
+- Iran War Day 19: Strikes hit South Pars (world's largest natural gas field); Iran missile killed 2 in Ramat Gan; IDF ground operation in southern Lebanon
+- Gas prices: NYC avg $3.74/gal (up 70¢ from month ago), NY state $3.62 (up 22¢/week)
+- Another nor'easter Sunday: up to 20" NJ, 8-12" NYC (6th major snow event)
+- NYC Council considering self-checkout item limit bill (retail theft)
+- NYCHA Stanley Isaacs Houses residents rejected RAD-PACT/Trust, keeping Section 9
+- JC ordered audit of Horizon health insurance claims
+- NJ electricity bills up 45% in 2 years
+- NYC Cinema Week starts March 20-26 (first ever indie film celebration)
+- Dog Day Afternoon in previews (Bernthal, Moss-Bachrach); Death of a Salesman in previews (Nathan Lane)
+- Fear of 13 opened on Broadway
+- Pickwick Vintage Show Saturday at Grand Central
+
 ### 2026-03-18
 - WBC Championship: Venezuela beats USA 3-2, first-ever WBC title; Maikel Garcia MVP; Eugenio Suárez 9th-inning RBI
 - Iran War Day 18: Israel kills Intelligence Minister Esmail Khatib; US drops 5,000-lb bunker busters on Hormuz missile sites; US/Israel hit South Pars gas field; Iran launches missiles toward central Israel
