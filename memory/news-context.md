@@ -8,7 +8,7 @@
 - **WBC 2026**: 2026-03-18 | count: 4 | CONCLUDED — Venezuela beats USA 3-2, first title; Maikel Garcia MVP
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-18 | count: 9 | Day 18, Intel Minister Khatib killed, US bunker busters on Hormuz, $3.79/gal national avg (highest since Oct 2023)
+- **Iran war/gas prices**: 2026-03-20 | count: 10 | Day 21, Tehran struck on Nowruz, South Pars hit, 1,444+ Iranian dead, $3.74/gal NYC
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -18,6 +18,7 @@
 - **Washington Heights food scene**: 2026-02-23 | count: 1 | Emerging as "hidden culinary gem"
 - **Texas BBQ in NYC**: 2026-02-25 | count: 1 | Kirbee's (Barbs B Q + Goldee's) coming to Greenpoint
 - **Luigi Mangione cultural moment**: 2026-03-04 | count: 1 | Musical announced, folk hero/villain status
+- **Whole Foods JSQ**: 2026-03-20 | count: 1 | Whole Foods confirmed for Journal Square
 
 ## Global Events Tracking
 <!-- Major world events with local relevance -->
@@ -27,6 +28,19 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-20
+- Eid al-Fitr: NYC schools closed, alternate side parking suspended (March 20-21)
+- Iran War Day 21: Israel struck Tehran on Nowruz (Persian New Year), South Pars struck, 1,444+ dead Iran / 18 Israel
+- JC seeking record $150M state aid from state
+- Mayor Solomon breaks with Fulop on police deployments, crime data
+- Whole Foods announced for Journal Square
+- Pompidou formally killed, grocery store moving forward
+- NYC Cinema Week starts today (March 20-26, first ever)
+- Titaíque coming to St. James March 26
+- Adrien Brody & Tessa Thompson made Broadway debuts
+- MTA ridership hit 1.3B in 2025 (up 7.7%)
+- Gas $3.74/gal NYC (up 70¢ from month ago)
+
 ### 2026-03-19
 - Iran War Day 19: Strikes hit South Pars (world's largest natural gas field); Iran missile killed 2 in Ramat Gan; IDF ground operation in southern Lebanon
 - Gas prices: NYC avg $3.74/gal (up 70¢ from month ago), NY state $3.62 (up 22¢/week)
