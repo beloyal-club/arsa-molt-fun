@@ -8,7 +8,7 @@
 - **WBC 2026**: 2026-03-18 | count: 4 | CONCLUDED — Venezuela beats USA 3-2, first title; Maikel Garcia MVP
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-21 | count: 11 | Day 22, Natanz nuclear site struck, Diego Garcia targeted, $3.91/gal national avg
+- **Iran war/gas prices**: 2026-03-22 | count: 12 | Day 23, Trump 48hr ultimatum for Strait; Iran hit Dimona/Arad; ~$4/gal national avg
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -19,6 +19,7 @@
 - **Texas BBQ in NYC**: 2026-02-25 | count: 1 | Kirbee's (Barbs B Q + Goldee's) coming to Greenpoint
 - **Luigi Mangione cultural moment**: 2026-03-04 | count: 1 | Musical announced, folk hero/villain status
 - **Whole Foods JSQ**: 2026-03-20 | count: 1 | Whole Foods confirmed for Journal Square
+- **Chuck Norris death**: 2026-03-22 | count: 1 | Action legend died at 86 (March 20)
 
 ## Global Events Tracking
 <!-- Major world events with local relevance -->
@@ -28,6 +29,15 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-22
+- Chuck Norris died at 86 (passed Thursday March 20, announced Friday)
+- Iran War Day 23: Trump gives 48-hour ultimatum to reopen Strait of Hormuz or US strikes power plants; Iran hit Dimona/Arad in southern Israel
+- Gas prices up 30%+ in some states since war started; national avg ~$4/gal
+- NYC weather: rain/thunderstorms, highs 60°F
+- NYC Cinema Week ongoing (through March 26)
+- MLB Opening Day in 3 days: Yankees @ Giants Mar 25, Mets home opener Mar 26
+- Spring Breakout prospect showcase ongoing
+
 ### 2026-03-21
 - Iran War Day 22: US-Israel struck Natanz nuclear enrichment facility; Iran hit Haifa + Ras Laffan, Qatar; cluster munition hit daycare in Rishon Lezion
 - Gas prices: $3.91/gal national avg (highest since Oct 2022); up nearly $1 since war started
