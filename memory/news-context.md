@@ -8,7 +8,9 @@
 - **WBC 2026**: 2026-03-18 | count: 4 | CONCLUDED — Venezuela beats USA 3-2, first title; Maikel Garcia MVP
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-22 | count: 12 | Day 23, Trump 48hr ultimatum for Strait; Iran hit Dimona/Arad; ~$4/gal national avg
+- **Iran war/gas prices**: 2026-03-23 | count: 13 | Day 24, Trump 5-day moratorium on Iran energy strikes; oil tumbled; ~$3.88/gal avg
+- **LaGuardia collision**: 2026-03-23 | count: 1 | Air Canada jet hit fire truck on landing, 2 pilots killed, LGA closed
+- **TSA shutdown crisis**: 2026-03-23 | count: 1 | Multi-hour airport lines, bodegas offering credit to unpaid agents
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
