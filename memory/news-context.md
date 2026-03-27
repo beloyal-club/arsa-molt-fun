@@ -8,9 +8,10 @@
 - **WBC 2026**: 2026-03-18 | count: 4 | CONCLUDED — Venezuela beats USA 3-2, first title; Maikel Garcia MVP
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-23 | count: 13 | Day 24, Trump 5-day moratorium on Iran energy strikes; oil tumbled; ~$3.88/gal avg
+- **Iran war/gas prices**: 2026-03-27 | count: 14 | Day 27, Trump extends energy strike pause 10 more days; Hormuz still closed; ~$3.92/gal NYC
 - **LaGuardia collision**: 2026-03-23 | count: 1 | Air Canada jet hit fire truck on landing, 2 pilots killed, LGA closed
-- **TSA shutdown crisis**: 2026-03-23 | count: 1 | Multi-hour airport lines, bodegas offering credit to unpaid agents
+- **TSA shutdown crisis**: 2026-03-27 | count: 2 | 2-hour waits at LGA, DHS shutdown continues, ICE assisting
+- **MLB 2026 season**: 2026-03-27 | count: 1 | Opening Day: Yankees 7-0 Giants (Fried), Mets 11-7 Pirates (Skenes shelled)
 - **Gracie Mansion bombing**: 2026-03-10 | count: 1 | ISIS-inspired attack, two PA teens arrested, FBI terrorism probe
 - **Mamdani/NYPD tensions**: 2026-02-26 | count: 1 | Snowball fight controversy reveals early friction
 - **Rangers fire sale**: 2026-02-26 | count: 1 | Zibanejad + Adam Fox potentially on the block
@@ -31,6 +32,22 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-27
+- Iran War Day 27: Trump extends energy strike pause 10 more days, "talks ongoing"; Iran denies; IRGC turned back 3 ships at Hormuz this morning
+- Iran expanded attacks to Kuwait, UAE, Saudi Arabia, Jordan overnight
+- Israel bombed Iran's "most central" naval arms production site + ballistic missile factories
+- Gas prices: NYC ~$3.92/gal, NY state avg $3.82/gal (up 84¢ from month ago)
+- S&P 500 down 1.7% Thursday — biggest drop since war started
+- TSA crisis: 2-hour waits at LGA general line, 40+ min PreCheck; ICE agents assisting
+- MLB: Yankees 7-0 Giants (Max Fried dominant), Mets 11-7 Pirates (Skenes shelled)
+- The Lost Boys starts Broadway previews tonight at Palace Theatre
+- Hadestown proshot with OG cast coming to cinemas July 24
+- Dog Day Afternoon: playwright Stephen Adly Guirgis briefly barred from rehearsals
+- JC: Cialone, Ambrose, Kaplan confirmed to top city jobs
+- JC: Council taking "first step" to restore Heights Hospital
+- JC: First cannabis consumption lounges approved
+- JC: Board of Ed grilled leadership over $935K abandoned software
+
 ### 2026-03-22
 - Chuck Norris died at 86 (passed Thursday March 20, announced Friday)
 - Iran War Day 23: Trump gives 48-hour ultimatum to reopen Strait of Hormuz or US strikes power plants; Iran hit Dimona/Arad in southern Israel
