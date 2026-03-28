@@ -8,7 +8,8 @@
 - **WBC 2026**: 2026-03-18 | count: 4 | CONCLUDED — Venezuela beats USA 3-2, first title; Maikel Garcia MVP
 - **Oscars 2026 aftermath**: 2026-03-16 | count: 1 | One Battle After Another (6 wins), Michael B. Jordan, Jessie Buckley
 - **Sidewalk shed crackdown**: 2026-03-07 | count: 1 | Mamdani 180-day rule, 40 NYCHA sites, stiffer fines
-- **Iran war/gas prices**: 2026-03-27 | count: 14 | Day 27, Trump extends energy strike pause 10 more days; Hormuz still closed; ~$3.92/gal NYC
+- **Iran war/gas prices**: 2026-03-28 | count: 15 | Day 28, Houthis entered war; Israel struck Tehran; ~$3.92/gal NYC
+- **No Kings protests**: 2026-03-28 | count: 1 | 3,100+ locations nationwide, NYC main march 2 PM Central Park South
 - **LaGuardia collision**: 2026-03-23 | count: 1 | Air Canada jet hit fire truck on landing, 2 pilots killed, LGA closed
 - **TSA shutdown crisis**: 2026-03-27 | count: 2 | 2-hour waits at LGA, DHS shutdown continues, ICE assisting
 - **MLB 2026 season**: 2026-03-27 | count: 1 | Opening Day: Yankees 7-0 Giants (Fried), Mets 11-7 Pirates (Skenes shelled)
@@ -32,6 +33,21 @@
 
 ## Recent Stories
 <!-- Last 7 days, prevent repeats -->
+### 2026-03-28
+- Iran War Day 28: Houthis entered war with ballistic missile attack on Israel (Beersheba sirens)
+- Israel struck Tehran overnight (~10 blasts heard, black smoke plumes)
+- Death toll: 16 Israel, 50+ Gulf countries, 13 US service members total
+- "No Kings" protests TODAY: 3,100+ locations nationwide; NYC main march 2 PM Central Park South; JC/Hoboken 9:30 AM
+- NYPD undercover op disrupted alleged plot to firebomb pro-Palestinian activist's home (Hoboken man arrested)
+- Brooklyn Bridge Manhattan entrance upgrades coming by June (FIFA World Cup prep)
+- Mamdani announced fast-food/retail worker restitution at City Hall
+- Measles detected in North Jersey wastewater
+- Bronx firehouse fire reported (Bedford Park)
+- Gas prices: $3.92/gal NYC, diesel $5.72
+- MLB: Mets vs Pirates Game 2 today (4:10 PM); Yankees 2-0 after opening win
+- The Lost Boys vampire musical started previews at Palace Theatre
+- Last weekend for MoMA Design Store grocery pop-up
+
 ### 2026-03-27
 - Iran War Day 27: Trump extends energy strike pause 10 more days, "talks ongoing"; Iran denies; IRGC turned back 3 ships at Hormuz this morning
 - Iran expanded attacks to Kuwait, UAE, Saudi Arabia, Jordan overnight
